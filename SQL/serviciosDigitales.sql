@@ -4,13 +4,12 @@ USE serviciosDigitales;
 
 CREATE TABLE IF NOT EXISTS usuarios (
     id_usu INT AUTO_INCREMENT,
-	nomFoto_usu VARCHAR(50) UNIQUE NOT NULL,
+	nomFoto_usu VARCHAR(50) UNIQUE,
 	nomUsuario_usu VARCHAR(50) UNIQUE NOT NULL,
     nom_usu VARCHAR(50) NOT NULL,
-	ape1_usu VARCHAR(50) NOT NULL,
-	ape2_usu VARCHAR(50) NOT NULL,
-	biografia_usu VARCHAR(50),
-    dni_usu VARCHAR(50) UNIQUE NOT NULL ,
+	ape1_usu VARCHAR(50),
+	ape2_usu VARCHAR(50),
+	biografia_usu VARCHAR(500),
     mail VARCHAR(50) UNIQUE NOT NULL,
     CONSTRAINT usuarios_pk PRIMARY KEY (id_usu)
 
@@ -18,20 +17,22 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 CREATE TABLE IF NOT EXISTS servicios (
     id_ser INT AUTO_INCREMENT,
-	nombre_fich_ser varchar(50) NOT NULL,
+    nombre_fich_ser varchar(50) NOT NULL,
     iniciado_ser bit,
     expli_ser VARCHAR(150),
-    solucionado_ser bit,
-    fecha_fich_ini DATETIME,
+    fecha_ser_ini DATETIME,
+    fecha_ser_fin DATETIME,
     titulo_ser VARCHAR(50),
+    puntuacion FLOAT,
     
     CONSTRAINT servicios_pk PRIMARY KEY (id_ser)
 ) ENGINE=INNODB;
 
 CREATE TABLE IF NOT EXISTS solucionar ( 
 	id_sol INT AUTO_INCREMENT,
-    id_usu_sol INT NOT NULL,
-    id_ser_sol INT UNIQUE NOT NULL,
+    id_usu_sol INT,
+    id_ser_sol INT,
+    solucionado TINYINT,
     CONSTRAINT solucionar1_pk PRIMARY KEY (id_sol),
     CONSTRAINT solucionar1_fk1 
 		FOREIGN KEY(id_usu_sol) REFERENCES usuarios(id_usu) ON DELETE CASCADE,

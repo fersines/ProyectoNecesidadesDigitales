@@ -7,8 +7,8 @@ const morgan = require("morgan");
 const {
   listServicios,
   getServicios,
-  newUser,
-} = require("./controllers/entries");
+  newUser
+  } = require("./controllers/entries");
 
 const { PORT } = process.env;
 

@@ -15,7 +15,7 @@ const deleteEntry = async (req, res, next) => {
           });
     } catch(error){
         next(error);
-    } finally{
+    } finally {
         if (conexion) conexion.release();
     }
     

@@ -1,6 +1,6 @@
 const getDB = require("../../db");
 
-const getServicios = async (req, res, next) => {
+const getServicio = async (req, res, next) => {
   let connection;
 
   try {
@@ -12,7 +12,7 @@ const getServicios = async (req, res, next) => {
     //Hago la query
     const [result] = await connection.query(
       `
-        SELECT id_ser, nombre_fich_ser, iniciado_ser, expli_ser, solucionado_ser, fecha_fich_ini, titulo_ser
+        SELECT *
         FROM servicios WHERE id_ser = ?
         `,
       [id]
@@ -38,4 +38,4 @@ const getServicios = async (req, res, next) => {
   }
 };
 
-module.exports = getServicios;
+module.exports = getServicio;

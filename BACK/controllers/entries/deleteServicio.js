@@ -1,6 +1,6 @@
 const getDB = require("../../db");
 
-const deleteEntry = async (req, res, next) => {
+const deleteServicio = async (req, res, next) => {
 
     let conexion;
     try{
@@ -21,4 +21,4 @@ const deleteEntry = async (req, res, next) => {
     
 }
 
-module.exports = deleteEntry;
+module.exports = deleteServicio;

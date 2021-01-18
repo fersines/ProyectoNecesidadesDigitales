@@ -1,9 +1,11 @@
-const listEntries = require("./listServicios");
+const listServicios = require("./listServicios");
 const newUser = require("./newUser");
-const getServicios = require("./getServicios");
+const getServicio = require("./getServicio");
+const deleteServicio = require("./deleteServicio");
 
 module.exports = {
-  listEntries,
+  listServicios,
   newUser,
-  getServicios,
+  getServicio,
+  deleteServicio,
 };

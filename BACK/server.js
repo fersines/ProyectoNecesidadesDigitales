@@ -6,8 +6,9 @@ const morgan = require("morgan");
 //Controladores
 const {
   listServicios,
-  getServicios,
-  newUser
+  deleteServicio,
+  newUser,
+  getServicio
   } = require("./controllers/entries");
 
 const { PORT } = process.env;
@@ -25,8 +26,8 @@ app.use(morgan("dev"));
 app.get("/servicios", listServicios);
 
 //Get - /servicios/id
-//Devuelve sólo un servicio
-app.get("/servicios/:id", getServicios);
+//Devuelve un único servicio
+app.get("/servicios/:id", getServicio);
 
 //Middleware de error
 app.use((error, req, res, next) => {

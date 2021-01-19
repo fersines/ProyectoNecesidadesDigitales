@@ -1,7 +1,14 @@
 CREATE DATABASE IF NOT EXISTS serviciosDigitales CHARACTER SET="utf8mb4" COLLATE="utf8mb4_unicode_ci";
 
 USE serviciosDigitales;
+/*
+OBSERVACIONES
 
+    TABLA USUARIOS
+
+        > Los campos "nomUsuario_usu" y "mail" serán únicos y no nulos. Afectará en su "end-point"
+        A ver si va
+*/
 CREATE TABLE IF NOT EXISTS usuarios (
     id_usu INT AUTO_INCREMENT,
 	nomFoto_usu VARCHAR(50) UNIQUE,
@@ -11,10 +18,14 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	ape2_usu VARCHAR(50),
 	biografia_usu VARCHAR(500),
     mail VARCHAR(50) UNIQUE NOT NULL,
+    pwd VARCHAR(10) DEFAULT NOT NULL,
+    rol ENUM("admin","normal") DEFAULT "normal" NOT NULL, 
+    activado TINYINT DEFAULT NULL,
+    borrado TINYINT DEFAULT NULL,
+    codigoRegistro VARCHAR(1O) DEFAULT NULL,
     CONSTRAINT usuarios_pk PRIMARY KEY (id_usu)
 
 )  ENGINE=INNODB;
-
 CREATE TABLE IF NOT EXISTS servicios (
     id_ser INT AUTO_INCREMENT,
     nombre_fich_ser varchar(50) NOT NULL,

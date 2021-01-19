@@ -7,7 +7,7 @@ OBSERVACIONES
     TABLA USUARIOS
 
         > Los campos "nomUsuario_usu" y "mail" serán únicos y no nulos. Afectará en su "end-point"
-        A ver si va
+        adaddffgsgs
 */
 CREATE TABLE IF NOT EXISTS usuarios (
     id_usu INT AUTO_INCREMENT,

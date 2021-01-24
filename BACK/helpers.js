@@ -37,5 +37,5 @@ function formatDateToDB(dateObject) {
 }
 
 module.exports = {
-  formatDateToDB,
+  formatDateToDB,sendMail,generateRandomString
 };

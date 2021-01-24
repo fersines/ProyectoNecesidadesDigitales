@@ -9,11 +9,11 @@ const newEntry = async (req, res, next) => {
 
             // Recojo de req.body el email y la password
 
-    const { email, password } = req.body;
-
+    
+    const { email, password, nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu, dni_usu } = req.body; 
     // Compruebo que no estén vacíos
 
-    if (!email || !password) {
+    if (!email || !password || !nomUsuario_usu || !nom_usu || !ape1_usu || !ape2_usu  || !dni_usu ) {
       const error = new Error("Faltan campos");
       error.httpStatus = 400;
       throw error;
@@ -40,7 +40,7 @@ const newEntry = async (req, res, next) => {
       }
   
   
-        const { nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu, dni_usu } = req.body; 
+        
           // Creo un código de registro (contraseña temporal de un solo uso)
         const registrationCode = generateRandomString(10);
         await conexion.query(

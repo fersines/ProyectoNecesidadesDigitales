@@ -1,14 +1,15 @@
-require("dotenv").config();
+require("dotenv").config();//inserto serv
 const express = require("express");
-
 const morgan = require("morgan");
+const bodyParser = require("body-parser");
 
 //Controladores
 const {
   listServicios,
   deleteServicio,
   newUser,
-  getServicio
+  getServicio,
+  validateUser
   } = require("./controllers/entries");
 
 const { PORT } = process.env;
@@ -18,7 +19,8 @@ const app = express();
 
 //Aplico middlewares
 app.use(morgan("dev"));
-
+// Body parser (body en JSON)
+app.use(bodyParser.json()); //Comentario realizado por [Israel] : no recuerdo para que lo hace
 //Rutas de la API
 
 //Get - /servicios
@@ -28,6 +30,14 @@ app.get("/servicios", listServicios);
 //Get - /servicios/id
 //Devuelve un único servicio
 app.get("/servicios/:id", getServicio);
+
+//Post - /user
+//Insertamos un usuario
+app.post("/insertar",newUser);
+
+//Get - user
+//Validar usuario
+app.get("/validar/:registrationCode",validateUser); 
 
 //Middleware de error
 app.use((error, req, res, next) => {

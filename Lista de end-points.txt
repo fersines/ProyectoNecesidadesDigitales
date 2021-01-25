@@ -8,7 +8,6 @@ Botones
  "Guardar o enviar datos"                                                            Admin       Estado
  ___________________________________________________________________________________________________________
 
- -* Insertar usuario administrador (role = admin) --------------------------------- [Israel]    Empezado
  -* Insertar datos usuario (role = usuario)  -------------------------------------- [Israel]   Sin Empezar
  -* Insertar mensajes a administrador
  -* Activación de usuario desde el correo electrónico (validarUsuario) ------------ [Israel]     Acabado
@@ -23,6 +22,7 @@ Botones
 
  -> Por parte del administrador:
 
+	 -* Insertar/Actualizar administrador (role = admin) ------------------------- [Israel]      Empezado
 	 -* Borrar usuario
 	 -* Borrar comentarios del usuario 
 	 -* Borrar servicios --------------------------------------------------------- [Fernando]

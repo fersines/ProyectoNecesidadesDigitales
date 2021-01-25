@@ -63,7 +63,8 @@ const newEntry = async (req, res, next) => {
 
 
         res.send({
-            menssage: "insertado?",
+          status: "ok",
+          message: "Usuario registrado comprueba tu email para activarlo",
         });
 
     } catch(error){

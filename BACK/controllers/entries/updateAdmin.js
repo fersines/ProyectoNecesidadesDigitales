@@ -1,7 +1,7 @@
 const getDB = require("../../db");
 const {generateRandomString,sendMail} = require("../../helpers");
 
-const newUser = async (req, res, next) => {
+const updateAmin = async (req, res, next) => {
     let conexion;
 
     try{
@@ -10,7 +10,7 @@ const newUser = async (req, res, next) => {
             // Recojo de req.body el email y la password
 
     
-    const { email, password, nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu, dni_usu } = req.body; 
+    const { role, email, password, nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu, dni_usu } = req.body; 
     // Compruebo que no estén vacíos
 
     if (!email || !password || !nomUsuario_usu || !nom_usu || !ape1_usu || !ape2_usu  || !dni_usu ) {
@@ -21,17 +21,16 @@ const newUser = async (req, res, next) => {
     
       // Compruebo que no exista un usuario en la base de datos con ese email
 
-      const [existingUser] = await conexion.query(
+      await conexion.query(
         `
-        SELECT id_usu
+        SELECT role
         FROM usuarios
-        WHERE mail=?
-      `,
-        [email]
+        WHERE role="admin"
+      `
       );
 
       
-    if (existingUser.length > 0) {
+    if (role !== null) {
         const error = new Error(
           "Ya hay un usuario en la base de datos con ese email"
         );
@@ -43,11 +42,15 @@ const newUser = async (req, res, next) => {
         
           // Creo un código de registro (contraseña temporal de un solo uso)
         const registrationCode = generateRandomString(10);
+
+       
+
+
         await conexion.query(
             `
-            INSERT INTO usuarios (nomUsuario_usu,nom_usu,ape1_usu,ape2_usu,biografia_usu,dni_usu,mail, pwd, codigoderegistro)
-            VALUES (?,?,?,?,?,?,?,SHA2(?,512),?);
-        `,[nomUsuario_usu,nom_usu,ape1_usu,ape2_usu,biografia_usu,dni_usu, email, password, registrationCode]);
+            INSERT INTO usuarios (role,nomUsuario_usu,nom_usu,ape1_usu,ape2_usu,biografia_usu,dni_usu,mail, pwd, codigoderegistro)
+            VALUES (?,?,?,?,?,?,?,?,SHA2(?,512),?);
+        `,[role,nomUsuario_usu,nom_usu,ape1_usu,ape2_usu,biografia_usu,dni_usu, email, password, registrationCode]);
 
 
             // ${process.env.PUBLIC_HOST}/users/validate/${registrationCode}
@@ -74,4 +77,4 @@ const newUser = async (req, res, next) => {
     }
 }
 
-module.exports = newUser;
+module.exports = updateAmin;

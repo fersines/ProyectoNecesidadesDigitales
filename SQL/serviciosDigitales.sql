@@ -18,11 +18,11 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	ape2_usu VARCHAR(50),
 	biografia_usu VARCHAR(500),
     mail VARCHAR(50) UNIQUE NOT NULL,
-    pwd VARCHAR(10) DEFAULT NOT NULL,
+    pwd VARCHAR(10) DEFAULT NULL,
     rol ENUM("admin","normal") DEFAULT "normal" NOT NULL, 
     activado TINYINT DEFAULT NULL,
     borrado TINYINT DEFAULT NULL,
-    codigoRegistro VARCHAR(1O) DEFAULT NULL,
+    codigoRegistro VARCHAR(100) DEFAULT NULL,
     CONSTRAINT usuarios_pk PRIMARY KEY (id_usu)
 
 )  ENGINE=INNODB;

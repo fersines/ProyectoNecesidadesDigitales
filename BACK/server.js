@@ -10,9 +10,11 @@ const {
   newUser,
   getServicio,
   validateUser,
-  updateAmin
+  updateAmin,
+  newServicio
   } = require("./controllers/entries");
-const newServicio = require("./controllers/entries/newServicio");
+
+//Esto es un comentario de prueba antes del nuevo push
 
 const { PORT } = process.env;
 

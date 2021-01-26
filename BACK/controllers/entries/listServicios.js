@@ -1,4 +1,3 @@
-const { result } = require("lodash");
 const getDB = require("../../db");
 
 const listServicios = async (req, res, next) => {

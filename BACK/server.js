@@ -11,6 +11,7 @@ const {
   getServicio,
   validateUser
   } = require("./controllers/entries");
+const newServicio = require("./controllers/entries/newServicio");
 
 const { PORT } = process.env;
 
@@ -30,6 +31,10 @@ app.get("/servicios", listServicios);
 //Get - /servicios/id
 //Devuelve un único servicio
 app.get("/servicios/:id", getServicio);
+
+//Post - /servicios
+//Insertamos un servicio
+app.post("/servicios", newServicio);
 
 //Post - /user
 //Insertamos un usuario

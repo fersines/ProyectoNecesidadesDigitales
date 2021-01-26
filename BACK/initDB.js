@@ -18,23 +18,23 @@ async function main() {
     for (let index = 0; index < usuarios; index++) {
       await connection.query(`
         INSERT INTO usuarios(
-            id_usu,
-            nomFoto_usu,
             nomUsuario_usu,
             nom_usu,
             ape1_usu,
             ape2_usu,
             biografia_usu,
-            mail)
+            mail,
+            pwd,
+            rol)
         VALUES(
-            "${faker.random.number(9999)}",
-            "${faker.lorem.word()}",
             "${faker.internet.userName()}",
             "${faker.name.firstName()}",
             "${faker.name.lastName()}",
             "${faker.name.lastName()}",
             "${faker.lorem.paragraph()}",
-            "${faker.internet.email()}")
+            "${faker.internet.email()}",
+            "${faker.internet.password(10)}",
+            "normal")
     `);
     }
 
@@ -46,14 +46,12 @@ async function main() {
     for (let index = 0; index < servicios; index++) {
       await connection.query(`
         INSERT INTO servicios(
-            id_ser,
             nombre_fich_ser,
             expli_ser,
             fecha_ser_ini,
             titulo_ser,
             puntuacion) 
         VALUES(
-            "${faker.random.number(9999)}",
             "${faker.lorem.word()}",
             "${faker.lorem.words(15)}",
             "${formatDateToDB(now)}",

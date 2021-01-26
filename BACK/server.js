@@ -9,7 +9,8 @@ const {
   deleteServicio,
   newUser,
   getServicio,
-  validateUser
+  validateUser,
+  updateAmin
   } = require("./controllers/entries");
 
 const { PORT } = process.env;
@@ -38,6 +39,10 @@ app.post("/insertar",newUser);
 //Get - user
 //Validar usuario
 app.get("/validar/:registrationCode",validateUser); 
+
+//Get - admin
+//Insertar o modificar "admin"
+app.post("/admin",updateAmin);
 
 //Middleware de error
 app.use((error, req, res, next) => {

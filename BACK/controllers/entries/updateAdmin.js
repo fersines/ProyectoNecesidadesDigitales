@@ -104,10 +104,6 @@ const updateAmin = async (req, res, next) => {
                 });
 
       }
-      else{
-
-        
-      }
 
     } catch(error){
         next(error);

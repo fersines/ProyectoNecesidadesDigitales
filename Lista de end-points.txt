@@ -8,7 +8,7 @@ Botones
  "Guardar o enviar datos"                                                            Admin       Estado
  ___________________________________________________________________________________________________________
 
- -* Insertar datos usuario (role = normal)  -------------------------------------- [Israel]   Empezando
+ -* Insertar datos usuario (role = normal)  -------------------------------------- [Israel]      Acabado (ya estaba realizado es el endpoint newUser)
  -* Insertar mensajes a administrador
  -* Activación de usuario desde el correo electrónico (validarUsuario) ------------ [Israel]     Acabado
  -* Insertar datos con la foto (página Mis datos User o Mis datos admin) 

@@ -8,25 +8,25 @@ Botones
  "Guardar o enviar datos"                                                            Admin       Estado
  ___________________________________________________________________________________________________________
 
- -* Insertar datos usuario (role = usuario)  -------------------------------------- [Israel]   Sin Empezar
+ -* Insertar datos usuario (role = normal)  -------------------------------------- [Israel]   Empezando
  -* Insertar mensajes a administrador
  -* Activación de usuario desde el correo electrónico (validarUsuario) ------------ [Israel]     Acabado
  -* Insertar datos con la foto (página Mis datos User o Mis datos admin) 
  -* Insertar comentarios
  -* Insertar aportar solución
- -* Insertar los servicios que quiero que me resuelvan
- -* Insertar la puntuación
+ -* Insertar los servicios que quiero que me resuelvan --------------------------- [Fernando]	 Acabado (hay que revisar la BBDD para ver donde se guardan los archivos)
+ -* Insertar la puntuación															[Fernando]	Empezado
  -* Insertar Solucionado por (Es de la página Detalle Petición User)
- -* Listar las peticiones de usuario --------------------------------------------- [Fernando]   
- -* Búsqueda de peticiones ------------------------------------------------------- [Fernando]
+ -* Listar las peticiones de usuario --------------------------------------------- [Fernando]    Acabado
+ -* Búsqueda de peticiones ------------------------------------------------------- [Fernando]	 Acabado
 
  -> Por parte del administrador:
 
-	 -* Insertar/Actualizar administrador (role = admin) ------------------------- [Israel]      Empezado
+	 -* Insertar/Actualizar administrador (role = admin) ---------------------- [Israel]     Acabado (Leer el archivo, tenemos que tener un usuario admin previo opción "a")
 	 -* Borrar usuario
 	 -* Borrar comentarios del usuario 
-	 -* Borrar servicios --------------------------------------------------------- [Fernando]
-	 -* Borrar petición ---------------------------------------------------------- [Fernando]
+	 -* Borrar servicios ------------------------------------------------------ [Fernando]
+	 -* Borrar petición ------------------------------------------------------- [Fernando]
 	 -* Modificar datos
 	 -* Añadir comentarios
 	 -* Listado de avisos pendientes

@@ -1,14 +1,19 @@
-const listServicios = require("./listServicios");
-const newUser = require("./newUser");
-const getServicio = require("./getServicio");
 const deleteServicio = require("./deleteServicio");
-const validateUser = require("./validateUser");
+const getServicio = require("./getServicio");
+const listServicios = require("./listServicios");
+const newServicio = require("./newServicio");
+const newUser = require("./newUser");
+const rankingUsers = require("./rankingUsers");
 const updateAmin = require("./updateAdmin");
+const validateUser = require("./validateUser");
+
 module.exports = {
-  listServicios,
-  newUser,
-  getServicio,
   deleteServicio,
-  validateUser,
-  updateAmin
+  getServicio,
+  listServicios,
+  newServicio,
+  newUser,
+  rankingUsers,
+  updateAmin,
+  validateUser  
 };

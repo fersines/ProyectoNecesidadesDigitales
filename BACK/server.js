@@ -5,13 +5,15 @@ const bodyParser = require("body-parser");
 
 //Controladores nuevos
 const {
-  listServicios,
   deleteServicio,
-  newUser,
   getServicio,
-  validateUser,
+  getUser,
+  listServicios,
+  listUsers,
+  newServicio,
+  newUser,
   updateAmin,
-  newServicio
+  validateUser
   } = require("./controllers/entries");
 
 //Esto es un comentario de prueba antes del nuevo push
@@ -27,13 +29,21 @@ app.use(morgan("dev"));
 app.use(bodyParser.json()); //Comentario realizado por [Israel] : no recuerdo para que lo hace
 //Rutas de la API
 
+//Get - /servicios/id
+//Devuelve un único servicio
+app.get("/servicios/:id", getServicio);
+
 //Get - /servicios
 //Devuelve todos los elementos de la tabla servicios
 app.get("/servicios", listServicios);
 
-//Get - /servicios/id
-//Devuelve un único servicio
-app.get("/servicios/:id", getServicio);
+//Get - /users
+//Devuelve todos los usuarios de la tabla usuarios
+app.get("/users", listUsers);
+
+//Get - /users/id
+//Devuelve un único usuario
+app.get("/users/:id", getUser);
 
 //Post - /servicios
 //Insertamos un servicio

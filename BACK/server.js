@@ -14,10 +14,6 @@ const {
   newServicio,
   newUser,
   updateAmin,
-<<<<<<< HEAD
-  adminUser,
-=======
->>>>>>> 7d6b935b95c57227df00ad7a30356b88392411af
   validateUser
   } = require("./controllers/entries");
 

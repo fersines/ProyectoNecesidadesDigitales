@@ -69,6 +69,8 @@ CREATE TABLE IF NOT EXISTS comentar (
     id_usu_co INT NOT NULL,
     id_ser_co INT NOT NULL,
     comentario VARCHAR(200),
+    sinver TINYINT,
+    sinleer TINYINT,
     CONSTRAINT comentar_pk PRIMARY KEY (id_co),
     CONSTRAINT comentar_fk1 
 		FOREIGN KEY(id_usu_co) REFERENCES usuarios(id_usu) ON DELETE CASCADE,

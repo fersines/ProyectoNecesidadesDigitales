@@ -37,14 +37,14 @@ Botones
  -* Peticiones usuarios
  -* Petición usuario individual
  -* Conversación
- -* Página de entrada del usuarios ------------------------------------------- [Israel]           Empezado
+ -* Página de entrada del usuarios -------------------------------------------------------- [Israel]           Empezado
 		o> Para [Mis Peticiones]
 		o> [Peticiones] 						                                   "                   "
 
 		Estos elementos engloblan varios usos en un mismo endpoint, entre ellos:
-			-o> Hacer Ranking																		Acabado
-			-o> Mis servicios solicitados															Acabado
-			-o> Servicios no solucionados con el usuario que lo solicita							Acabado
-			-o> Servicios solucionados con el usuario que lo solución 								Acabado
-			-o> Nº de peticiones realizadas,nº de solicitudes y nº de soluciones					Empezado
+			-o> Hacer Ranking									Acabado
+			-o> Mis servicios solicitados								Acabado
+			-o> Servicios no solucionados con el usuario que lo solicita				Acabado
+			-o> Servicios solucionados con el usuario que lo solución 				Acabado
+			-o> Nº de peticiones realizadas,nº de solicitudes y nº de soluciones			Empezado
 			

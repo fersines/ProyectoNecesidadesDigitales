@@ -1,6 +1,6 @@
 Lista de endpoint:
 
--* Leer el token (loginUser)
+-* Leer el token (loginUser) ----------------------------------------------------[Israel]
 
 
 Botones
@@ -9,42 +9,43 @@ Botones
  ___________________________________________________________________________________________________________
 
  -* Insertar datos usuario (role = normal)  -------------------------------------- [Israel]      Acabado (ya estaba realizado es el endpoint newUser)
- -* Insertar mensajes a administrador
+ -* Insertar mensajes a administrador (tabla comentarios)--------------------------[Fernando]
  -* Activación de usuario desde el correo electrónico (validarUsuario) ----------- [Israel]      Acabado
- -* Insertar datos con la foto (página Mis datos User o Mis datos admin) 
- -* Insertar comentarios
- -* Insertar aportar solución
- -* Insertar los servicios que quiero que me resuelvan --------------------------- [Fernando]	 Acabado (hay que revisar la BBDD para ver donde se guardan los archivos)
+ -* Insertar datos con la foto (página Mis datos User o Mis datos admin)-----------[Fernando]
+ -* Insertar comentarios ----------------------------------------------------------[Fernando]
+ -* Insertar aportar solución -----------------------------------------------------[Israel]
+ -* Insertar los servicios que quiero que me resuelvan --------------------------- [Israel]	 Acabado (hay que revisar la BBDD para ver donde se guardan los archivos)
  -* Insertar la puntuación ------------------------------------------------------- [Fernando]    Empezado
- -* Insertar Solucionado por (Es de la página Detalle Petición User)
+ -* Insertar Solucionado por (Es de la página Detalle Petición User)---------------[Fernando]
  -* Listar las peticiones de usuario --------------------------------------------- [Fernando]    Acabado
  -* Búsqueda de peticiones ------------------------------------------------------- [Fernando]	 Acabado
 
  -> Por parte del administrador:
 
 	 -* Insertar/Actualizar administrador (role = admin) ---------------------- [Israel]     Acabado (Leer el archivo, tenemos que tener un usuario admin previo opción "a")
-	 -* Borrar usuario
-	 -* Borrar comentarios del usuario 
+	 -* Borrar usuario -------------------------------------------------------- [Fernando]
+	 -* Borrar comentarios del usuario -----------------------------------------[Fernando]
 	 -* Borrar servicios ------------------------------------------------------ [Fernando]
 	 -* Borrar petición ------------------------------------------------------- [Fernando]
-	 -* Modificar datos
-	 -* Añadir comentarios
-	 -* Listado de avisos pendientes
+	 -* Modificar datos --------------------------------------------------------[Fernando]
+	 -* Añadir comentarios -----------------------------------------------------[Fernando]
+	 -* Listado de avisos pendientes (Admin) -----------------------------------[Israel]
+	 -* Listado de avisos pendientes (User) ------------------------------------[Israel]
 
  "Ver detalle" => Selección de datos para mostrar en pantalla
 
 
- -* Peticiones usuarios
- -* Petición usuario individual
- -* Conversación
- -* Página de entrada del usuarios ------------------------------------------- [Israel]           Empezado
+ -* Peticiones usuarios --------------------------------------------------------------------[Israel]
+ -* Petición usuario individual ------------------------------------------------------------[Israel]
+ -* Conversación ---------------------------------------------------------------------------[Fernando]
+ -* Página de entrada del usuarios -------------------------------------------------------- [Israel]           Empezado
 		o> Para [Mis Peticiones]
 		o> [Peticiones] 						                                   "                   "
 
 		Estos elementos engloblan varios usos en un mismo endpoint, entre ellos:
-			-o> Hacer Ranking																		Acabado
-			-o> Mis servicios solicitados															Acabado
-			-o> Servicios no solucionados con el usuario que lo solicita							Acabado
-			-o> Servicios solucionados con el usuario que lo solución 								Acabado
-			-o> Nº de peticiones realizadas,nº de solicitudes y nº de soluciones					Empezado
+			-o> Hacer Ranking ---------------------------------------------------------------[Israel]			Acabado
+			-o> Mis servicios solicitados ---------------------------------------------------[Israel]			Acabado
+			-o> Servicios no solucionados con el usuario que lo solicita --------------------[Israel]			Acabado
+			-o> Servicios solucionados con el usuario que lo solución -----------------------[Israel]			Acabado
+			-o> Nº de peticiones realizadas,nº de solicitudes y nº de soluciones ------------[Israel]   		Empezado
 			

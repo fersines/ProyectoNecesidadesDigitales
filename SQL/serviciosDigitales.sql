@@ -44,6 +44,9 @@ CREATE TABLE IF NOT EXISTS solucionar (
     id_usu_sol INT,
     id_ser_sol INT,
     solucionado TINYINT,
+    nomFich UNIQUE VARCHAR(50),
+    comentarioSolucion VARCHAR(50),
+    fecha_solucion DATETIME,
     CONSTRAINT solucionar1_pk PRIMARY KEY (id_sol),
     CONSTRAINT solucionar1_fk1 
 		FOREIGN KEY(id_usu_sol) REFERENCES usuarios(id_usu) ON DELETE CASCADE,

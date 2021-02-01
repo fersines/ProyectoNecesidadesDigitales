@@ -1,3 +1,4 @@
+const adminUser = require("./adminUser");
 const deleteServicio = require("./deleteServicio");
 const getServicio = require("./getServicio");
 const getUser = require("./getUser");
@@ -6,10 +7,10 @@ const listUsers = require("./listUsers");
 const newServicio = require("./newServicio");
 const newUser = require("./newUser");
 const updateAmin = require("./updateAdmin");
-const adminUser = require("./adminUser");
 const validateUser = require("./validateUser");
 
 module.exports = {
+  adminUser,
   deleteServicio,
   getServicio,
   getUser,
@@ -18,6 +19,5 @@ module.exports = {
   newServicio,
   newUser,
   updateAmin,
-  validateUser ,
-  adminUser
+  validateUser
 };

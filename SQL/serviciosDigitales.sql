@@ -29,8 +29,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 CREATE TABLE IF NOT EXISTS servicios (
     id_ser INT AUTO_INCREMENT,
     nombre_fich_ser varchar(50) NOT NULL,
-    iniciado_ser bit,
-    expli_ser VARCHAR(150),
+    expli_ser VARCHAR(500),
     fecha_ser_ini DATETIME,
     fecha_ser_fin DATETIME,
     titulo_ser VARCHAR(50),

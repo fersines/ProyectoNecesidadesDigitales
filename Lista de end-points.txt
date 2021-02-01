@@ -34,9 +34,17 @@ Botones
  "Ver detalle" => Selección de datos para mostrar en pantalla
 
 
- -* Nº de peticiones realizadas,nº de solicitudes y nº de soluciones
  -* Peticiones usuarios
  -* Petición usuario individual
  -* Conversación
- -* Ranking usuarios --------------------------------------------------------- [Israel]           Empezado
-		o> Para [Mis Peticiones], [Peticiones]                                    "                   "
+ -* Página de entrada del usuarios ------------------------------------------- [Israel]           Empezado
+		o> Para [Mis Peticiones]
+		o> [Peticiones] 						                                   "                   "
+
+		Estos elementos engloblan varios usos en un mismo endpoint, entre ellos:
+			-o> Hacer Ranking																		Acabado
+			-o> Mis servicios solicitados															Acabado
+			-o> Servicios no solucionados con el usuario que lo solicita							Acabado
+			-o> Servicios solucionados con el usuario que lo solución 								Acabado
+			-o> Nº de peticiones realizadas,nº de solicitudes y nº de soluciones					Empezado
+			

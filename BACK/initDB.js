@@ -13,12 +13,22 @@ async function main() {
 
     //Introduzco varios usuarios
 
-    const usuarios = 25;
+    const usuarios = 10;
 
+    /*for(let index=0;index < usuarios; index++){
+      await connection.query(`
+        INSERT INTO comentar(id_usu_co,id_ser_co,comentario)
+        VALUES(
+          30,
+          5,
+          "${faker.lorem.words(15)}"
+        );
+      `);
+    }
+    console.log("Usuarios creados");*/
     for (let index = 0; index < usuarios; index++) {
       await connection.query(`
         INSERT INTO usuarios(
-            id_usu,
             nomFoto_usu,
             nomUsuario_usu,
             nom_usu,
@@ -27,7 +37,6 @@ async function main() {
             biografia_usu,
             mail)
         VALUES(
-            "${faker.random.number(9999)}",
             "${faker.lorem.word()}",
             "${faker.internet.userName()}",
             "${faker.name.firstName()}",
@@ -41,28 +50,26 @@ async function main() {
     console.log("Usuarios creados");
       
     //Introduzco varios servicios
-    const servicios = 50;
+   /* const servicios = 50;
 
     for (let index = 0; index < servicios; index++) {
       await connection.query(`
-        INSERT INTO servicios(
-            id_ser,
+        INSERT INTO servicios(           
             nombre_fich_ser,
             expli_ser,
             fecha_ser_ini,
             titulo_ser,
             puntuacion) 
         VALUES(
-            "${faker.random.number(9999)}",
             "${faker.lorem.word()}",
             "${faker.lorem.words(15)}",
             "${formatDateToDB(now)}",
             "${faker.lorem.words(3)}",
             "${faker.random.number(10)}")
     `);
-    }
+    }*/
 
-    console.log("Servicios creados");
+    //console.log("Servicios creados");
   } catch (error) {
     console.error(error);
   } finally {

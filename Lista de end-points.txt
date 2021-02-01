@@ -39,3 +39,4 @@ Botones
  -* Petición usuario individual
  -* Conversación
  -* Ranking usuarios --------------------------------------------------------- [Israel]           Empezado
+		o> Para [Mis Peticiones], [Peticiones]                                    "                   "

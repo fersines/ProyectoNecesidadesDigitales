@@ -11,6 +11,7 @@ const {
   getServicio,
   validateUser,
   updateAmin,
+  adminUser,
   newServicio
   } = require("./controllers/entries");
 
@@ -26,7 +27,8 @@ app.use(morgan("dev"));
 // Body parser (body en JSON)
 app.use(bodyParser.json()); //Comentario realizado por [Israel] : no recuerdo para que lo hace
 //Rutas de la API
-
+//Post - userAdmin
+app.post("/users/userLogin/",adminUser);
 //Get - /servicios
 //Devuelve todos los elementos de la tabla servicios
 app.get("/servicios", listServicios);

@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 
 //Controladores nuevos
 const {
+  adminUser,
   deleteServicio,
   getServicio,
   getUser,
@@ -13,8 +14,6 @@ const {
   newServicio,
   newUser,
   updateAmin,
-  adminUser,
-  newServicio
   validateUser
   } = require("./controllers/entries");
 
@@ -37,6 +36,10 @@ app.post("/users/userLogin/",adminUser);
 //Devuelve un único servicio
 app.get("/servicios/:id", getServicio);
 
+//Get - /users/id
+//Devuelve un único usuario
+app.get("/users/:id", getUser);
+
 //Get - /servicios
 //Devuelve todos los elementos de la tabla servicios
 app.get("/servicios", listServicios);
@@ -44,10 +47,6 @@ app.get("/servicios", listServicios);
 //Get - /users
 //Devuelve todos los usuarios de la tabla usuarios
 app.get("/users", listUsers);
-
-//Get - /users/id
-//Devuelve un único usuario
-app.get("/users/:id", getUser);
 
 //Post - /servicios
 //Insertamos un servicio
@@ -57,13 +56,13 @@ app.post("/servicios", newServicio);
 //Insertamos un usuario
 app.post("/insertar",newUser);
 
-//Get - user
-//Validar usuario
-app.get("/validar/:registrationCode",validateUser); 
-
 //Get - admin
 //Insertar o modificar "admin"
 app.post("/admin",updateAmin);
+
+//Get - user
+//Validar usuario
+app.get("/validar/:registrationCode",validateUser); 
 
 //Middleware de error
 app.use((error, req, res, next) => {

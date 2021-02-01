@@ -35,7 +35,10 @@ const newServicio = async (req, res, next) => {
     VALUES(?,?,?,?,?);
     `,
     [nombre_fich_ser, expli_ser, formatDateToDB(now), titulo_ser, puntuacion]
-    ) /* && 
+    ) && (`
+    SELECT servicios.id_ser FROM servicios WHERE titulo_ser = ${titulo_ser}
+    ;
+    `) &&
     (`
     INSERT INTO solicitar(
         id_usu_soli,
@@ -43,7 +46,22 @@ const newServicio = async (req, res, next) => {
     VALUES(?,?);
     `,
     [id_usu_soli, id_ser_soli]
-    ) */;
+    );
+
+  /*   const [result1] = await connection.query(`
+    SELECT servicios.id_ser FROM servicios WHERE titulo_ser = ${titulo_ser}
+    ;
+    `) &&
+    (`
+    INSERT INTO solicitar(
+        id_usu_soli,
+        id_ser_soli)
+    VALUES(?,?);
+    `,
+    [id_usu_soli, id_ser_soli]
+    )  ;
+
+    console.log(result1); */
 
     const {inserId} = result;
 

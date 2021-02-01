@@ -12,8 +12,8 @@ const getDB = require("../../db");
 
 const adminUser = async (req, res, next) => {
     let connection;
-    const {id} = req.params;
-    console.log(`El id: ${id}`)
+    const {id_usuario} = req.query;
+    console.log(`El id: ${id_usuario}`)
   try {
     connection = await getDB();
 
@@ -27,32 +27,34 @@ const adminUser = async (req, res, next) => {
     group by usuarios.id_usu
     order by sum(puntuacion) desc;
     
-    `,[id]);
+    `,[id_usuario]);
     //console.log(`El ranking con los usuarios:  ${ranking[0]}`);
-    for(const prop in ranking){
+    /*for(const prop in ranking){
         console.log(`${prop} = ${ranking[prop]}`);
         for(const contador in ranking[prop]){
             console.log(`Datos de ranking: ${contador} = ${ranking[prop][contador]}. \n nom_usu: ${ranking[prop]['nom_usu']} \n sum:  ${ranking[prop]['sum(puntuacion)']}`)
         }
-    }
+    }*/
   const [misServicios] = await connection.query(`select * from servicios join solicitar
   on servicios.id_ser = solicitar.id_ser_soli
-  where solicitar.id_usu_soli = 1;`);
-  for(const j in misServicios){
+  where solicitar.id_usu_soli = ?;`,[id_usuario]);
+  /*for(const j in misServicios){
       console.log(`${j}=${misServicios[j]}`)
       for(const k in misServicios[j]){
           console.log(`Datos de mis servicios: ${k} = ${misServicios[j][k]}, y accediendo a datos, en este caso a Título del servicio ${misServicios[j]['titulo_ser']} `)
       }
-  }
-  const [misServiciosNoSolucionados] = await connection.query(`select titulo_ser,nombre_fich_ser,puntuacion 
+  }*/
+  const [misServiciosNoSolucionados] = await connection.query(`
+  select titulo_ser,nombre_fich_ser,puntuacion 
   from servicios join solicitar
   on servicios.id_ser = solicitar.id_ser_soli
-  where solicitar.id_usu_soli = ? and puntuacion = 0;`,[id]);
+  where solicitar.id_usu_soli = ? and puntuacion = 0;`,[id_usuario]);
 
-  const [misSerSolucionados] = await connection.query(`select titulo_ser,nombre_fich_ser,puntuacion 
-  from servicios join solicitar
-  on servicios.id_ser = solicitar.id_ser_soli
-  where solicitar.id_usu_soli = ? and puntuacion = 1;`,[id]);
+  const [misServiciosSolucionados] = await connection.query(`
+  select titulo_ser,nombre_fich_ser,puntuacion from servicios join solicitar
+on servicios.id_ser = solicitar.id_ser_soli
+join solucionar on solucionar.id_ser_sol = solicitar.id_ser_soli
+where solicitar.id_usu_soli = ? and solucionar.solucionado = 1;`,[id_usuario]);
 
   const [serviciosNoSolucionados] = await connection.query(
       `select nom_usu,solicitar.id_usu_soli,nombre_fich_ser,expli_ser,titulo_ser
@@ -60,7 +62,7 @@ const adminUser = async (req, res, next) => {
         on usuarios.id_usu = solicitar.id_usu_soli
         join servicios on servicios.id_ser = solicitar.id_ser_soli
         where puntuacion = 0
-        group by id_ser`);
+        group by id_ser;`);
 
 
   const [serviciosSoluUserSolucionador] = await connection.query(`select usuarios.nom_usu as 'Usuario que lo soluciona',servicios.titulo_ser as 'Titulo',puntuacion
@@ -78,7 +80,7 @@ const adminUser = async (req, res, next) => {
         clasificacion: ranking,
         serv: misServicios,
         misSerNoSolucionados : misServiciosNoSolucionados,
-        misSerSolucionados: misSerSolucionados,
+        misSerSolucionados: misServiciosSolucionados,
         servNoSolucionados: serviciosNoSolucionados,
         servSolUserSolucioador: serviciosSoluUserSolucionador,
       });

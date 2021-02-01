@@ -34,7 +34,7 @@ app.post("/users/userLogin/",adminUser);
 
 //Get - /servicios/id
 //Devuelve un único servicio
-app.get("/servicios/:id", getServicio);
+app.get("/servicios/", getServicio);
 
 //Get - /users/id
 //Devuelve un único usuario

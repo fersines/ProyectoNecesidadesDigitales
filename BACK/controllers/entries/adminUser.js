@@ -44,6 +44,10 @@ const adminUser = async (req, res, next) => {
           console.log(`Datos de mis servicios: ${k} = ${misServicios[j][k]}, y accediendo a datos, en este caso a Título del servicio ${misServicios[j]['titulo_ser']} `)
       }
   }*/
+  const [NumMisServSoli] = await connection.query(`select  count(id_ser) 
+  from servicios join solicitar
+    on servicios.id_ser = solicitar.id_ser_soli
+    where solicitar.id_usu_soli = ?;`,[id_usuario]);
   const [misServiciosNoSolucionados] = await connection.query(`
   select titulo_ser,nombre_fich_ser,puntuacion 
   from servicios join solicitar
@@ -73,10 +77,13 @@ where solicitar.id_usu_soli = ? and solucionar.solucionado = 1;`,[id_usuario]);
   where (puntuacion > 0)
   group by servicios.id_ser;`);
 
-
+  const [MisSolucionados] = await connection.query(`select  count(id_sol) 
+  from solucionar where solucionado = 1 && id_usu_sol= ?;`, [id_usuario]);
      // Devuelvo un json con las entradas
      res.send({
         status: "ok",
+        numMisSolucionados:MisSolucionados,
+        numMisSolicitados:NumMisServSoli,
         clasificacion: ranking,
         serv: misServicios,
         misSerNoSolucionados : misServiciosNoSolucionados,

@@ -1,11 +1,12 @@
 {
   "name": "diario-de-viajes",
   "version": "1.0.0",
-  "description": "",
+  "description": "Crear un fichero .env con los contenidos de .env.example completados.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",

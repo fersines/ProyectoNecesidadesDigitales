@@ -1,6 +1,6 @@
 const getDB = require("../../db");
 
-const getServicio = async (req, res, next) => {
+const getUser = async (req, res, next) => {
   let connection;
 
   try {
@@ -13,7 +13,7 @@ const getServicio = async (req, res, next) => {
     const [result] = await connection.query(
       `
         SELECT *
-        FROM servicios WHERE id_ser = ?
+        FROM usuarios WHERE id_usu = ?
         `,
       [id]
     );
@@ -22,7 +22,7 @@ const getServicio = async (req, res, next) => {
 
     if (!single) {
       //El elemento no existe
-      const error = new Error("El servicio no existe");
+      const error = new Error("El usuario no existe");
       error.httpStatus = 404;
       throw error;
     }
@@ -38,4 +38,4 @@ const getServicio = async (req, res, next) => {
   }
 };
 
-module.exports = getServicio;
+module.exports = getUser;

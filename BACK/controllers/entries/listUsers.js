@@ -1,6 +1,6 @@
 const getDB = require("../../db");
 
-const listServicios = async (req, res, next) => {
+const listUsers = async (req, res, next) => {
   let connection;
 
   try {
@@ -14,15 +14,15 @@ const listServicios = async (req, res, next) => {
     if (search) {
       [results] = await connection.query(
         `
-            SELECT * FROM servicios
-            WHERE titulo_ser LIKE ? OR expli_ser LIKE ?;
+            SELECT * FROM usuarios
+            WHERE nomUsuario_usu LIKE ? OR biografia_usu LIKE ?;
         `,
         [`%${search}%`, `%${search}%`]
       );
     } else {
       //Leo los servicios de la BBDD
       [results] = await connection.query(`
-            SELECT * FROM servicios;
+            SELECT * FROM usuarios;
         `);
     }
 
@@ -38,4 +38,4 @@ const listServicios = async (req, res, next) => {
   }
 };
 
-module.exports = listServicios;
+module.exports = listUsers;

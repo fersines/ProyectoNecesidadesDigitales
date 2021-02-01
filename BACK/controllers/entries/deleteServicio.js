@@ -6,7 +6,7 @@ const deleteServicio = async (req, res, next) => {
     try{
         conexion = await getDB();
         const {id} = req.params;
-        console.log(`esto es lo que recibo ${id}`);
+        console.log(`esto es lo que recibo: ${id}`);
 
         await conexion.query(`DELETE FROM usuarios WHERE id_usu = ?`,[id]);
         res.send({

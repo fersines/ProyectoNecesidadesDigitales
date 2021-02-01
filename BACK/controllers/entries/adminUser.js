@@ -44,6 +44,15 @@ const adminUser = async (req, res, next) => {
           console.log(`Datos de mis servicios: ${k} = ${misServicios[j][k]}, y accediendo a datos, en este caso a Título del servicio ${misServicios[j]['titulo_ser']} `)
       }
   }
+  const [misServiciosNoSolucionados] = await connection.query(`select titulo_ser,nombre_fich_ser,puntuacion 
+  from servicios join solicitar
+  on servicios.id_ser = solicitar.id_ser_soli
+  where solicitar.id_usu_soli = ? and puntuacion = 0;`,[id]);
+
+  const [misSerSolucionados] = await connection.query(`select titulo_ser,nombre_fich_ser,puntuacion 
+  from servicios join solicitar
+  on servicios.id_ser = solicitar.id_ser_soli
+  where solicitar.id_usu_soli = ? and puntuacion = 1;`,[id]);
 
   const [serviciosNoSolucionados] = await connection.query(
       `select nom_usu,solicitar.id_usu_soli,nombre_fich_ser,expli_ser,titulo_ser
@@ -68,6 +77,8 @@ const adminUser = async (req, res, next) => {
         status: "ok",
         clasificacion: ranking,
         serv: misServicios,
+        misSerNoSolucionados : misServiciosNoSolucionados,
+        misSerSolucionados: misSerSolucionados,
         servNoSolucionados: serviciosNoSolucionados,
         servSolUserSolucioador: serviciosSoluUserSolucionador,
       });

@@ -7,7 +7,6 @@ const newServicio = require("./newServicio");
 const newUser = require("./newUser");
 const updateAmin = require("./updateAdmin");
 const adminUser = require("./adminUser");
-const newServicio = require("./newServicio");
 const validateUser = require("./validateUser");
 
 module.exports = {

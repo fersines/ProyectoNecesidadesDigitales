@@ -14,7 +14,6 @@ const {
   newUser,
   updateAmin,
   adminUser,
-  newServicio
   validateUser
   } = require("./controllers/entries");
 

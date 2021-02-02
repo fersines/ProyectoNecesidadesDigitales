@@ -1,3 +1,13 @@
+Este archivo tiene distintos contenidos
+
+o> Cantidades de endpoints
+o> Lista de endpoints
+o> Archivos empleados para los endpoints
+o> Aclaraciones
+
+////////////////////////////////////////////////////////////////////////////
+//////////////////////Cantidades de endpoints
+///////////////////////////////////////////////////////////////////////////
 A continuación escribo el número de endpoints para cada uno, de esta manera nos ayuda a saber
 cuántos nos quedan y tener la idea aproximada de que nos queda.
 Cada endpoint puede conllevar su tiempo y dificultad.
@@ -8,7 +18,10 @@ Israel			12			10
 Fernando		14			2
 __________________________________
 
-Lista de endpoint:
+////////////////////////////////////////////////////////////////////////////
+///////////////////Lista de endpoint
+////////////////////////////////////////////////////////////////////////////
+
 
 Botones
 
@@ -37,7 +50,7 @@ Botones
 	 17) Borrar petición ------------------------------------------------------- [Fernando]
 	 18) Modificar datos --------------------------------------------------------[Fernando]
 	 19) Añadir comentarios -----------------------------------------------------[Fernando]
-	 20) Listado de avisos pendientes (Admin) -----------------------------------[Israel]     Acabado  
+	 20) Listado de avisos pendientes (Admin) -----------------------------------[Israel]     Acabado -> (Aclaración - 3)  
 		---> Los avisos están listos,es igual que para el usuario, tal vez,
 			 la página que verá el admin sea algo distinta
 	 
@@ -55,8 +68,44 @@ Botones
 			22.4) Servicios solucionados con el usuario que lo solución -----------------------[Israel]		Acabado
 			22.5) Nº de peticiones realizadas,nº de solicitudes y nº de soluciones ------------[Israel]   		Acabado
 			
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Aclaraciones:
+   ARCHIVOS EMPLEADOS PARA LOS END-POINT
+_______________________________________________________________
+Nº endpoint		Carpeta		Nombre archivo		Observaciones
+_______________________________________________________________
+1				entries		newUser
+2				   								
+3                     
+4							newUser                  
+5
+6
+7
+8							newServicio
+9
+10
+11
+12
+13							updateAdmin
+14
+15
+16
+17
+18
+19
+20							adminUser			Hay que implementar en funciones
+21
+22							adminUser
 
+
+
+
+
+
+/////////////////////////////////////
+////////////Aclaraciones
+//////////////////////////////////
 1) Ya estaba realizado es el endpoint newUser
 2) Leer el archivo, tenemos que tener un usuario admin previo opción "a"
+3) Las funciones están implementadas en el archivo adminUser, habría que hacer lo mismo para la
+	página del admin

@@ -5,16 +5,16 @@ Lista de endpoint:
 
 Botones
 
- "Guardar o enviar datos"                                                            Admin       Estado
+ "Guardar o enviar datos"                                                            Admin       Estado		
  ___________________________________________________________________________________________________________
 
- -* Insertar datos usuario (role = normal)  -------------------------------------- [Israel]      Acabado (ya estaba realizado es el endpoint newUser)
+ -* Insertar datos usuario (role = normal)  -------------------------------------- [Israel]      Acabado -> (Aclaración - 1)
  -* Insertar mensajes a administrador (tabla comentarios)--------------------------[Fernando]
  -* Activación de usuario desde el correo electrónico (validarUsuario) ----------- [Israel]      Acabado
  -* Insertar datos con la foto (página Mis datos User o Mis datos admin)-----------[Fernando]
  -* Insertar comentarios ----------------------------------------------------------[Fernando]
  -* Insertar aportar solución -----------------------------------------------------[Israel]
- -* Insertar los servicios que quiero que me resuelvan --------------------------- [Israel]	 Acabado (hay que revisar la BBDD para ver donde se guardan los archivos)
+ -* Insertar los servicios que quiero que me resuelvan --------------------------- [Israel]		Modificando
  -* Insertar la puntuación ------------------------------------------------------- [Fernando]    Empezado
  -* Insertar Solucionado por (Es de la página Detalle Petición User)---------------[Fernando]
  -* Listar las peticiones de usuario --------------------------------------------- [Fernando]    Acabado
@@ -22,30 +22,33 @@ Botones
 
  -> Por parte del administrador:
 
-	 -* Insertar/Actualizar administrador (role = admin) ---------------------- [Israel]     Acabado (Leer el archivo, tenemos que tener un usuario admin previo opción "a")
+	 -* Insertar/Actualizar administrador (role = admin) ---------------------- [Israel]     Acabado -> (Aclaración - 2) 
 	 -* Borrar usuario -------------------------------------------------------- [Fernando]
 	 -* Borrar comentarios del usuario -----------------------------------------[Fernando]
 	 -* Borrar servicios ------------------------------------------------------ [Fernando]
 	 -* Borrar petición ------------------------------------------------------- [Fernando]
 	 -* Modificar datos --------------------------------------------------------[Fernando]
 	 -* Añadir comentarios -----------------------------------------------------[Fernando]
-	 -* Listado de avisos pendientes (Admin) -----------------------------------[Israel]
-	 -* Listado de avisos pendientes (User) ------------------------------------[Israel]
-
+	 -* Listado de avisos pendientes (Admin) -----------------------------------[Israel]     Acabado  
+		---> Los avisos están listos,es igual que para el usuario, tal vez,
+			 la página que verá el admin sea algo distinta
+	 
  "Ver detalle" => Selección de datos para mostrar en pantalla
 
-
- -* Peticiones usuarios --------------------------------------------------------------------[Israel]
- -* Petición usuario individual ------------------------------------------------------------[Israel]
  -* Conversación ---------------------------------------------------------------------------[Fernando]
- -* Página de entrada del usuarios -------------------------------------------------------- [Israel]           Empezado
+ -* Página de entrada del usuarios -------------------------------------------------------- [Israel]           Acabado
 		o> Para [Mis Peticiones]
-		o> [Peticiones] 						                                   "                   "
+		o> [Peticiones] 						                                                      
 
 		Estos elementos engloblan varios usos en un mismo endpoint, entre ellos:
 			-o> Hacer Ranking ---------------------------------------------------------------[Israel]			Acabado
-			-o> Mis servicios solicitados ---------------------------------------------------[Israel]			Acabado
+			-o> Mis servicios solicitados, solucionados y no solucionados -------------------[Israel]			Acabado
 			-o> Servicios no solucionados con el usuario que lo solicita --------------------[Israel]			Acabado
 			-o> Servicios solucionados con el usuario que lo solución -----------------------[Israel]			Acabado
-			-o> Nº de peticiones realizadas,nº de solicitudes y nº de soluciones ------------[Israel]   		Empezado
+			-o> Nº de peticiones realizadas,nº de solicitudes y nº de soluciones ------------[Israel]   		Acabado
 			
+
+Aclaraciones:
+
+1) Ya estaba realizado es el endpoint newUser
+2) Leer el archivo, tenemos que tener un usuario admin previo opción "a"

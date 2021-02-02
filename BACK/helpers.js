@@ -2,6 +2,7 @@ const { format } = require("date-fns");
 const sgMail = require('@sendgrid/mail');
 const crypto = require("crypto");
 sgMail.setApiKey('');
+const getDB = require("./db");
 //se manda como un objeto, y este ya lo desestructura en 'to','subject' y 'body'
 async function sendMail({to,subject,body}){
     try{

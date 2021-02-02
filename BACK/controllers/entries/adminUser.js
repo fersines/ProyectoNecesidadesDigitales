@@ -9,7 +9,6 @@
  */
 
 const getDB = require("../../db");
-
 const adminUser = async (req, res, next) => {
     let connection;
     const {id_usuario} = req.query;
@@ -55,10 +54,9 @@ const adminUser = async (req, res, next) => {
   where solicitar.id_usu_soli = ? and puntuacion = 0;`,[id_usuario]);
 
   const [misServiciosSolucionados] = await connection.query(`
-  select titulo_ser,nombre_fich_ser,puntuacion from servicios join solicitar
-on servicios.id_ser = solicitar.id_ser_soli
-join solucionar on solucionar.id_ser_sol = solicitar.id_ser_soli
-where solicitar.id_usu_soli = ? and solucionar.solucionado = 1;`,[id_usuario]);
+  select titulo_ser,nombre_fich_ser,puntuacion from servicios join solicitar 
+  on servicios.id_ser = solicitar.id_ser_soli join solucionar on solucionar.id_ser_sol = solicitar.id_ser_soli
+  where solicitar.id_usu_soli = ? and solucionar.solucionado = 1;`,[id_usuario]);
 
   const [serviciosNoSolucionados] = await connection.query(
       `select nom_usu,solicitar.id_usu_soli,nombre_fich_ser,expli_ser,titulo_ser
@@ -79,9 +77,18 @@ where solicitar.id_usu_soli = ? and solucionar.solucionado = 1;`,[id_usuario]);
 
   const [MisSolucionados] = await connection.query(`select  count(id_sol) 
   from solucionar where solucionado = 1 && id_usu_sol= ?;`, [id_usuario]);
+  
+  const [comentSinLer] = await connection.query(`select count(sinleer) from comentar join usuarios
+  on usuarios.id_usu = comentar.id_usu_co
+  where sinleer = 1 and id_usu_co = ?`,[id_usuario]);
+  const [comentSinVer] = await connection.query(`select count(sinver) from comentar join usuarios
+  on usuarios.id_usu = comentar.id_usu_co
+  where sinver = 1 and id_usu_co = ?`,[id_usuario]);
      // Devuelvo un json con las entradas
      res.send({
         status: "ok",
+        numComentariosSinver: comentSinVer,
+        numComentariosSinLer: comentSinLer,
         numMisSolucionados:MisSolucionados,
         numMisSolicitados:NumMisServSoli,
         clasificacion: ranking,

@@ -1,7 +1,14 @@
+A continuación escribo el número de endpoints para cada uno, de esta manera nos ayuda a saber
+cuántos nos quedan y tener la idea aproximada de que nos queda.
+Cada endpoint puede conllevar su tiempo y dificultad.
+
+			Asignados	Acabados	
+__________________________________
+Israel			12			9
+Fernando		14			2
+__________________________________
+
 Lista de endpoint:
-
--* Leer el token (loginUser) ----------------------------------------------------[Israel]
-
 
 Botones
 
@@ -9,6 +16,7 @@ Botones
  ___________________________________________________________________________________________________________
 
  -* Insertar datos usuario (role = normal)  -------------------------------------- [Israel]      Acabado -> (Aclaración - 1)
+ -* Leer el token (loginUser) ---------------------------------------------------- [Israel]
  -* Insertar mensajes a administrador (tabla comentarios)--------------------------[Fernando]
  -* Activación de usuario desde el correo electrónico (validarUsuario) ----------- [Israel]      Acabado
  -* Insertar datos con la foto (página Mis datos User o Mis datos admin)-----------[Fernando]

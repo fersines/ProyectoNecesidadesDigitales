@@ -14,7 +14,7 @@ Botones
  -* Insertar datos con la foto (página Mis datos User o Mis datos admin)-----------[Fernando]
  -* Insertar comentarios ----------------------------------------------------------[Fernando]
  -* Insertar aportar solución -----------------------------------------------------[Israel]
- -* Insertar los servicios que quiero que me resuelvan --------------------------- [Israel]		Modificando
+ -* Insertar los servicios que quiero que me resuelvan --------------------------- [Israel]	Modificando
  -* Insertar la puntuación ------------------------------------------------------- [Fernando]    Empezado
  -* Insertar Solucionado por (Es de la página Detalle Petición User)---------------[Fernando]
  -* Listar las peticiones de usuario --------------------------------------------- [Fernando]    Acabado

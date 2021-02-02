@@ -37,7 +37,7 @@ async function main() {
             biografia_usu,
             mail)
         VALUES(
-            "${faker.lorem.word()}",
+            "${faker.lorem.words(5)}",
             "${faker.internet.userName()}",
             "${faker.name.firstName()}",
             "${faker.name.lastName()}",
@@ -50,7 +50,7 @@ async function main() {
     console.log("Usuarios creados");
       
     //Introduzco varios servicios
-   /* const servicios = 50;
+  const servicios = 50;
 
     for (let index = 0; index < servicios; index++) {
       await connection.query(`
@@ -67,9 +67,10 @@ async function main() {
             "${faker.lorem.words(3)}",
             "${faker.random.number(10)}")
     `);
-    }*/
+    }
 
-    //console.log("Servicios creados");
+  console.log("Servicios creados");
+
   } catch (error) {
     console.error(error);
   } finally {

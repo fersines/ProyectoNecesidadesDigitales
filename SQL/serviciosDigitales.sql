@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS solucionar (
     id_usu_sol INT,
     id_ser_sol INT,
     solucionado TINYINT,
-    nomFich UNIQUE VARCHAR(50),
+    nomFich VARCHAR(50) UNIQUE,
     comentarioSolucion VARCHAR(50),
     fecha_solucion DATETIME,
     CONSTRAINT solucionar1_pk PRIMARY KEY (id_sol),

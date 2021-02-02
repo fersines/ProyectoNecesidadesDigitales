@@ -41,10 +41,10 @@ Botones
 		o> [Peticiones] 						                                                      
 
 		Estos elementos engloblan varios usos en un mismo endpoint, entre ellos:
-			-o> Hacer Ranking ---------------------------------------------------------------[Israel]			Acabado
-			-o> Mis servicios solicitados, solucionados y no solucionados -------------------[Israel]			Acabado
-			-o> Servicios no solucionados con el usuario que lo solicita --------------------[Israel]			Acabado
-			-o> Servicios solucionados con el usuario que lo solución -----------------------[Israel]			Acabado
+			-o> Hacer Ranking ---------------------------------------------------------------[Israel]		Acabado
+			-o> Mis servicios solicitados, solucionados y no solucionados -------------------[Israel]		Acabado
+			-o> Servicios no solucionados con el usuario que lo solicita --------------------[Israel]		Acabado
+			-o> Servicios solucionados con el usuario que lo solución -----------------------[Israel]		Acabado
 			-o> Nº de peticiones realizadas,nº de solicitudes y nº de soluciones ------------[Israel]   		Acabado
 			
 

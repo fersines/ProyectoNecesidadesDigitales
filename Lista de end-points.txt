@@ -34,7 +34,7 @@ Botones
  4) Activación de usuario desde el correo electrónico (validarUsuario) ----------- [Israel]      Acabado
  5) Insertar datos con la foto (página Mis datos User o Mis datos admin)-----------[Fernando]
  6) Insertar comentarios ----------------------------------------------------------[Fernando]
- 7) Insertar aportar solución -----------------------------------------------------[Israel]
+ 7) Insertar aportar solución -----------------------------------------------------[Israel]		Empezado
  8) Insertar los servicios que quiero que me resuelvan --------------------------- [Israel]	     Acabado
  9) Insertar la puntuación ------------------------------------------------------- [Fernando]    Empezado
  10) Insertar Solucionado por (Es de la página Detalle Petición User)---------------[Fernando]

@@ -10,10 +10,10 @@ const newUser = async (req, res, next) => {
             // Recojo de req.body el email y la password
 
     
-    const { email, password, nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu, dni_usu } = req.body; 
+    const { email, password, nomUsuario_usu, nom_usu, ape1_usu, ape2_usu, biografia_usu } = req.body; 
     // Compruebo que no estén vacíos
 
-    if (!email || !password || !nomUsuario_usu || !nom_usu || !ape1_usu || !ape2_usu  || !dni_usu ) {
+    if (!email || !password || !nomUsuario_usu || !nom_usu || !ape1_usu || !ape2_usu) {
       const error = new Error("Faltan campos");
       error.httpStatus = 400;
       throw error;
@@ -45,9 +45,9 @@ const newUser = async (req, res, next) => {
         const registrationCode = generateRandomString(10);
         await conexion.query(
             `
-            INSERT INTO usuarios (nomUsuario_usu,nom_usu,ape1_usu,ape2_usu,biografia_usu,dni_usu,mail, pwd, codigoderegistro)
+            INSERT INTO usuarios (nomUsuario_usu,nom_usu,ape1_usu,ape2_usu,biografia_usu,mail, pwd, codigoderegistro)
             VALUES (?,?,?,?,?,?,?,SHA2(?,512),?);
-        `,[nomUsuario_usu,nom_usu,ape1_usu,ape2_usu,biografia_usu,dni_usu, email, password, registrationCode]);
+        `,[nomUsuario_usu,nom_usu,ape1_usu,ape2_usu,biografia_usu, email, password, registrationCode]);
 
 
             // ${process.env.PUBLIC_HOST}/users/validate/${registrationCode}

@@ -4,7 +4,7 @@ Cada endpoint puede conllevar su tiempo y dificultad.
 
 			Asignados	Acabados	
 __________________________________
-Israel			12			9
+Israel			12			10
 Fernando		14			2
 __________________________________
 

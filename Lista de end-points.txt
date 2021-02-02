@@ -22,7 +22,7 @@ Botones
  5) Insertar datos con la foto (página Mis datos User o Mis datos admin)-----------[Fernando]
  6) Insertar comentarios ----------------------------------------------------------[Fernando]
  7) Insertar aportar solución -----------------------------------------------------[Israel]
- 8) Insertar los servicios que quiero que me resuelvan --------------------------- [Israel]	Modificando
+ 8) Insertar los servicios que quiero que me resuelvan --------------------------- [Israel]	     Acabado
  9) Insertar la puntuación ------------------------------------------------------- [Fernando]    Empezado
  10) Insertar Solucionado por (Es de la página Detalle Petición User)---------------[Fernando]
  11) Listar las peticiones de usuario --------------------------------------------- [Fernando]    Acabado

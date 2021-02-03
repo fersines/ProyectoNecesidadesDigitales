@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const {
   adminUser,
   deleteServicio,
+  editUser,
   getServicio,
   getUser,
   listServicios,
@@ -28,9 +29,18 @@ const app = express();
 app.use(morgan("dev"));
 // Body parser (body en JSON)
 app.use(bodyParser.json()); //Comentario realizado por [Israel] : no recuerdo para que lo hace
+
 //Rutas de la API
 //Post - userAdmin
 app.post("/users/userLogin/",adminUser);
+
+//Delete - /servicios/:id
+//Borra un servicio de la BBDD
+app.delete("/servicios/:id", deleteServicio);
+
+//Put - /usuarios/:id
+//Permite al Admin modificar los datos de usuario en la BBDD
+app.put("/users/:id", editUser);
 
 //Get - /servicios/id
 //Devuelve un único servicio

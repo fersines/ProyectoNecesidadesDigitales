@@ -44,11 +44,11 @@ Botones
  -> Por parte del administrador:
 
 	 13) Insertar/Actualizar administrador (role = admin) ---------------------- [Israel]     Acabado -> (Aclaración - 2) 
-	 14) Borrar usuario -------------------------------------------------------- [Fernando]
+	 14) Borrar usuario -------------------------------------------------------- [Fernando]   Acabado (creo que me falta algo)
 	 15) Borrar comentarios del usuario -----------------------------------------[Fernando]
-	 16) Borrar servicios ------------------------------------------------------ [Fernando]
-	 17) Borrar petición ------------------------------------------------------- [Fernando]
-	 18) Modificar datos --------------------------------------------------------[Fernando]
+	 16) Borrar servicios ------------------------------------------------------ [Fernando]	  Acabado (pdte confirmar)	
+	 17) Borrar petición ------------------------------------------------------- [Fernando]   Acabado (igual que el anterior)		
+	 18) Modificar datos --------------------------------------------------------[Fernando]   Acabado (flecos)
 	 19) Añadir comentarios -----------------------------------------------------[Fernando]
 	 20) Listado de avisos pendientes (Admin) -----------------------------------[Israel]     Acabado -> (Aclaración - 3)  
 		---> Los avisos están listos,es igual que para el usuario, tal vez,

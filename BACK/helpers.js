@@ -24,9 +24,6 @@ async function sendMail({to,subject,body}){
         console.log(error)
         throw new Error("Error enviando mail");
     }
-  
-
-      
 }
 
 // Genera una cadena de caracteres aleatoria

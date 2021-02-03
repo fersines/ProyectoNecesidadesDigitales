@@ -27,9 +27,20 @@ const getServicio = async (req, res, next) => {
       throw error;
     }
 
+    //Sacamos el fichero del servicio
+
+    const [ file, ] = await connection.query(
+      `SELECT nombre_fich_ser, fecha_ser_ini FROM servicios WHERE id_ser=?`,
+      [id]
+    );
+
+    console.log(file);
+
     res.send({
       status: "Ok",
-      data: single,
+      data: {
+        ...single,
+        file,},
     });
   } catch (error) {
     next(error);

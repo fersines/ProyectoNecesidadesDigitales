@@ -23,14 +23,12 @@ const deleteServicio = async (req, res, next) => {
             throw error;
         }
 
-        //Seleccionar los ficheros
+        //Seleccionar los ficheros (¿ruta?)
         const [ files, ] = await connection.query(
             `SELECT nombre_fich_ser FROM servicios WHERE id_ser=?`, [id]
         );
         console.log(files);
         //Borrar los posibles ficheros (pendiente cuando tengamos la ruta)
-
-        //Borrar la puntuación
 
         //Borrar el servicio de la tabla servicios
         await connection.query(`DELETE FROM servicios WHERE id_ser = ?`,[id]);

@@ -1,6 +1,6 @@
 const getDB = require("../../db");
 const { formatDateToDB } = require("../../helpers");
-const { result } = require("lodash");
+//const { result } = require("lodash");
 
 const newServicio = async (req, res, next) => {
   let connection;

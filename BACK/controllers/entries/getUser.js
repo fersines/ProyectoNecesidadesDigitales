@@ -27,9 +27,17 @@ const getUser = async (req, res, next) => {
       throw error;
     }
 
+    //Sacamos los comentarios del usuario
+    const [ comment, ] = await connection.query(
+      `SELECT * FROM comentar WHERE id_usu_co=?`,
+      [id]
+    );
+
     res.send({
       status: "Ok",
-      data: single,
+      data: {
+        single,
+        comment,},
     });
   } catch (error) {
     next(error);

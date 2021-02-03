@@ -13,6 +13,7 @@ const newServicio = require("./newServicio");
 const newUser = require("./newUser");
 const updateAmin = require("./updateAdmin");
 const validateUser = require("./validateUser");
+const voteServicio = require("./voteServicio");
 
 module.exports = {
   adminUser,
@@ -29,5 +30,6 @@ module.exports = {
   newServicio,
   newUser,
   updateAmin,
-  validateUser
+  validateUser,
+  voteServicio
 };

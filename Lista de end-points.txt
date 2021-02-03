@@ -15,7 +15,7 @@ Cada endpoint puede conllevar su tiempo y dificultad.
 			Asignados	Acabados	
 __________________________________
 Israel			12			10
-Fernando		14			10
+Fernando		14			11
 __________________________________
 
 ////////////////////////////////////////////////////////////////////////////
@@ -36,7 +36,7 @@ Botones
  6) Insertar comentarios ----------------------------------------------------------[Fernando]	Acabado
  7) Insertar aportar solución -----------------------------------------------------[Israel]		Empezado
  8) Insertar los servicios que quiero que me resuelvan --------------------------- [Israel]	    Acabado
- 9) Insertar la puntuación ------------------------------------------------------- [Fernando]   Empezado
+ 9) Insertar la puntuación ------------------------------------------------------- [Fernando]   Acabado
  10) Insertar Solucionado por (Es de la página Detalle Petición User)---------------[Fernando]
  11) Listar las peticiones de usuario --------------------------------------------- [Fernando]  Acabado
  12) Búsqueda de peticiones ------------------------------------------------------- [Fernando]	Acabado
@@ -66,7 +66,7 @@ Botones
 			22.2) Mis servicios solicitados, solucionados y no solucionados -------------------[Israel]		Acabado
 			22.3) Servicios no solucionados con el usuario que lo solicita --------------------[Israel]		Acabado
 			22.4) Servicios solucionados con el usuario que lo solución -----------------------[Israel]		Acabado
-			22.5) Nº de peticiones realizadas,nº de solicitudes y nº de soluciones ------------[Israel]   		Acabado
+			22.5) Nº de peticiones realizadas,nº de solicitudes y nº de soluciones ------------[Israel]   	Acabado
 			
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -82,7 +82,7 @@ _______________________________________________________________
 6							newComentar			(lo puse muy básico, tengo dudas de la relación de esta tabla con el resto)
 7
 8							newServicio
-9
+9							voteServicio
 10
 11                          listServicios		(falta hacer busqueda que devuelva los de un usuario concreto)
 12							listServicios 		(buscando por titulo_ser o expli_ser)	

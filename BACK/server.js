@@ -19,7 +19,8 @@ const {
   deleteUser,
   newComentar,
   deleteComentar,
-  listComentar
+  listComentar,
+  voteServicio
   } = require("./controllers/entries");
 
 //Esto es un comentario de prueba antes del nuevo push
@@ -93,6 +94,10 @@ app.post("/admin",updateAmin);
 //Get - user
 //Validar usuario
 app.get("/validar/:registrationCode",validateUser); 
+
+//Put - /servicios
+//Añade puntuación a un servicio
+app.put("/servicios/:id", voteServicio);
 
 //Middleware de error
 app.use((error, req, res, next) => {

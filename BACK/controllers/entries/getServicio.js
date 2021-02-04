@@ -27,9 +27,28 @@ const getServicio = async (req, res, next) => {
       throw error;
     }
 
+    //Sacamos el fichero del servicio
+
+    const [ file, ] = await connection.query(
+      `SELECT nombre_fich_ser, fecha_ser_ini FROM servicios WHERE id_ser=?`,
+      [id]
+    );
+
+    //Sacamos el comentario
+    const [ comment, ] = await connection.query(
+      `SELECT comentario FROM comentar WHERE id_ser_co=?`,
+      [id]
+    );
+
+    console.log(file);
+
     res.send({
       status: "Ok",
-      data: single,
+      data: {
+        ...single,
+        file,
+        comment,
+      },
     });
   } catch (error) {
     next(error);

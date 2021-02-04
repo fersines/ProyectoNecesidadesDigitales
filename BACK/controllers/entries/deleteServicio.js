@@ -2,21 +2,45 @@ const getDB = require("../../db");
 
 const deleteServicio = async (req, res, next) => {
 
-    let conexion;
+    let connection;
     try{
-        conexion = await getDB();
-        const {id} = req.params;
-        console.log(`esto es lo que recibo: ${id}`);
+        connection = await getDB();
 
-        await conexion.query(`DELETE FROM usuarios WHERE id_usu = ?`,[id]);
+        //Comprobar si el servicio existe o no y devolver 404 si no existe
+        const { id } = req.params;
+
+        //Comprobamos que existe el usuario con ese id
+
+        const [current,] = await connection.query(`SELECT id_ser FROM servicios WHERE id_ser=?`,[id]);
+            
+        //Si no existe devolver un 404
+
+        if (current.length === 0) {
+            const error = new Error(
+                "No existe ningún servicio en la BBDD con ese id_ser"
+            );
+            error.httpStatus = 404;
+            throw error;
+        }
+
+        //Seleccionar los ficheros (¿ruta?)
+        const [ files, ] = await connection.query(
+            `SELECT nombre_fich_ser FROM servicios WHERE id_ser=?`, [id]
+        );
+        console.log(files);
+        //Borrar los posibles ficheros (pendiente cuando tengamos la ruta)
+
+        //Borrar el servicio de la tabla servicios
+        await connection.query(`DELETE FROM servicios WHERE id_ser = ?`,[id]);
+
         res.send({
             status: "ok",
-            message: `La entrada con id ${id} fué borrado`,
+            message: `El servicio con id ${id} fué borrado`,
           });
     } catch(error){
         next(error);
     } finally {
-        if (conexion) conexion.release();
+        if (connection) connection.release();
     }
     
 }

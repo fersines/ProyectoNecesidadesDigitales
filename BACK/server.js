@@ -2,7 +2,7 @@ require("dotenv").config();//inserto serv
 const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-
+const fileUpload = require('express-fileupload');
 //Controladores nuevos
 const {
   adminUser,
@@ -14,9 +14,21 @@ const {
   newServicio,
   newUser,
   updateAmin,
-  validateUser
+  validateUser,
+  insertThings
   } = require("./controllers/entries");
 
+  const urls = {
+    "userlogin":"/users/userLogin/",
+    "serviciosid":"/servicios/:id",
+    "usersid":"/users/:id",
+    "servicios":"/servicios",
+    "users":"/users",
+    "insertar":"/insertar",
+    "admin":"/admin",
+    "validaregistrationCode":"/validar/:registrationCode",
+    "usersolution":"/user/solution",
+  };
 //Esto es un comentario de prueba antes del nuevo push
 
 const { PORT } = process.env;
@@ -28,41 +40,51 @@ const app = express();
 app.use(morgan("dev"));
 // Body parser (body en JSON)
 app.use(bodyParser.json()); //Comentario realizado por [Israel] : no recuerdo para que lo hace
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(fileUpload({
+  createParentPath: true
+}));
 //Rutas de la API
 //Post - userAdmin
-app.post("/users/userLogin/",adminUser);
+app.post(urls.userlogin,adminUser);
 
 //Get - /servicios/id
 //Devuelve un único servicio
-app.get("/servicios/:id", getServicio);
+app.get(urls.serviciosid, getServicio);
 
 //Get - /users/id
 //Devuelve un único usuario
-app.get("/users/:id", getUser);
+app.get(urls.usersid, getUser);
+
+//Insertar Solucion
+
+app.post(urls.usersolution,insertThings);
 
 //Get - /servicios
 //Devuelve todos los elementos de la tabla servicios
-app.get("/servicios", listServicios);
+app.get(urls.servicios, listServicios);
 
 //Get - /users
 //Devuelve todos los usuarios de la tabla usuarios
-app.get("/users", listUsers);
+app.get(urls.users, listUsers);
 
 //Post - /servicios
 //Insertamos un servicio
-app.post("/servicios", newServicio);
+app.post(urls.servicios, newServicio);
 
 //Post - /user
 //Insertamos un usuario
-app.post("/insertar",newUser);
+app.post(urls.insertar,newUser);
 
 //Get - admin
 //Insertar o modificar "admin"
-app.post("/admin",updateAmin);
+app.post(urls.admin,updateAmin);
 
 //Get - user
 //Validar usuario
-app.get("/validar/:registrationCode",validateUser); 
+app.get(urls.validaregistrationCode,validateUser); 
+
+
 
 //Middleware de error
 app.use((error, req, res, next) => {

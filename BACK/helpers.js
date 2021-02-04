@@ -1,6 +1,9 @@
 const { format } = require("date-fns");
 const sgMail = require('@sendgrid/mail');
+const path = require("path");
 const crypto = require("crypto");
+const fs = require("fs").promises;
+
 sgMail.setApiKey('');
 const getDB = require("./db");
 //se manda como un objeto, y este ya lo desestructura en 'to','subject' y 'body'
@@ -37,6 +40,36 @@ function formatDateToDB(dateObject) {
   return format(dateObject, "yyyy-MM-dd HH:mm:ss");
 }
 
+async function uploadFile(mifichero,id_usuario,id_servicio) {
+  
+  try{
+    const dir = path.join(__dirname,`./docs/solucion/${id_servicio}/${id_usuario}/`);
+    mifichero.mv(`${dir}` + mifichero.name);
+  }catch(error){
+    console.error(error.message);
+  }
+}
+
+function insertFiles(ficheros,datos){
+
+  for (const archivo in ficheros){
+    uploadFile(ficheros[archivo],datos.usuario,datos.servicio);
+  }
+}
+
+async function makeDir(nameDir){
+  try {
+    
+    const dir = path.join(__dirname,`docs/solucion/${nameDir}`);
+
+    await fs.mkdir(dir, {recursive: true});
+    console.log("Los directorios fueron creados");
+
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
 module.exports = {
-  formatDateToDB,sendMail,generateRandomString
+  formatDateToDB,sendMail,generateRandomString,makeDir,uploadFile,insertFiles
 };

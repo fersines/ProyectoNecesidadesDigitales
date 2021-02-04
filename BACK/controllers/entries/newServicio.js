@@ -40,6 +40,7 @@ const newServicio = async (req, res, next) => {
       }
     }
     console.log(`O id leído ${id[0]['id_ser']}`);
+    console.log(`O id doutro xeito: ${id[0].id_ser}`);
 
     
 
@@ -48,7 +49,8 @@ const newServicio = async (req, res, next) => {
     //Devuelto un json con los servicios
     res.send({
       status: "ok",
-      idLeido:id
+      idLeido:id,
+      idDoutroxeito:id[0].id_ser
     });
   } catch (error) {
     next(error);

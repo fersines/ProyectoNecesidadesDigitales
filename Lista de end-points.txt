@@ -14,7 +14,7 @@ Cada endpoint puede conllevar su tiempo y dificultad.
 
 			Asignados	Acabados	
 __________________________________
-Israel			12			11
+Israel			12			12
 Fernando		14			11
 __________________________________
 
@@ -29,7 +29,7 @@ Botones
  ___________________________________________________________________________________________________________
 
  1) Insertar datos usuario (role = normal)  -------------------------------------- [Israel]		Acabado -> (Aclaración - 1)
- 2) Leer el token (loginUser) ---------------------------------------------------- [Israel]
+ 2) Leer el token (loginUser) ---------------------------------------------------- [Israel]		Acabado
  3) Insertar mensajes a administrador (tabla comentarios)--------------------------[Fernando]
  4) Activación de usuario desde el correo electrónico (validarUsuario) ----------- [Israel]		Acabado
  5) Insertar datos con la foto (página Mis datos User o Mis datos admin)-----------[Fernando]	Acabado
@@ -75,7 +75,7 @@ _______________________________________________________________
 Nº endpoint		Carpeta		Nombre archivo		Observaciones
 _______________________________________________________________
 1				entries		newUser
-2				   								
+2				   			loginUser				
 3                     
 4							newUser                  
 5							editUser 			(falta por hacer que cada uno pueda hacer lo suyo)

@@ -4,7 +4,7 @@ const path = require("path");
 const crypto = require("crypto");
 const fs = require("fs").promises;
 
-sgMail.setApiKey('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');
+sgMail.setApiKey('');
 const getDB = require("./db");
 //se manda como un objeto, y este ya lo desestructura en 'to','subject' y 'body'
 async function sendMail({to,subject,body}){

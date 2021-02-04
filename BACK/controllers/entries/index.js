@@ -32,6 +32,6 @@ module.exports = {
   newUser,
   updateAmin,
   validateUser,
-  insertThings
+  insertThings,
   voteServicio
 };

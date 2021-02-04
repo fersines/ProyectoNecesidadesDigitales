@@ -14,7 +14,7 @@ Cada endpoint puede conllevar su tiempo y dificultad.
 
 			Asignados	Acabados	
 __________________________________
-Israel			12			10
+Israel			12			11
 Fernando		14			11
 __________________________________
 
@@ -34,7 +34,7 @@ Botones
  4) Activación de usuario desde el correo electrónico (validarUsuario) ----------- [Israel]		Acabado
  5) Insertar datos con la foto (página Mis datos User o Mis datos admin)-----------[Fernando]	Acabado
  6) Insertar comentarios ----------------------------------------------------------[Fernando]	Acabado
- 7) Insertar aportar solución -----------------------------------------------------[Israel]		Empezado
+ 7) Insertar aportar solución -----------------------------------------------------[Israel]		Acabado
  8) Insertar los servicios que quiero que me resuelvan --------------------------- [Israel]	    Acabado
  9) Insertar la puntuación ------------------------------------------------------- [Fernando]   Acabado
  10) Insertar Solucionado por (Es de la página Detalle Petición User)---------------[Fernando]
@@ -80,7 +80,7 @@ _______________________________________________________________
 4							newUser                  
 5							editUser 			(falta por hacer que cada uno pueda hacer lo suyo)
 6							newComentar			(lo puse muy básico, tengo dudas de la relación de esta tabla con el resto)
-7
+7							insertThings
 8							newServicio
 9							voteServicio
 10

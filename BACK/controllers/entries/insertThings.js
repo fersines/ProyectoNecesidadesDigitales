@@ -23,7 +23,8 @@ const insertThings = async (req, res, next)=>{
         const {id_usuario,id_servicio} = req.body;
         const dato = {
             "usuario":`${id_usuario}`,
-            "servicio":`${id_servicio}`
+            "servicio":`${id_servicio}`,
+            "carpeta": "docs/solution"
         }
         insertFiles(req.files,dato);
 

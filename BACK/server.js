@@ -16,7 +16,7 @@ const {
   newUser,
   updateAmin,
   validateUser,
-  insertThings
+  insertThings,
   deleteUser,
   newComentar,
   deleteComentar,
@@ -119,7 +119,7 @@ app.get(urls.validaregistrationCode,validateUser);
 
 //Put - /servicios
 //Añade puntuación a un servicio
-app.put("/servicios/:id", voteServicio);
+//app.put("/servicios/:id", voteServicio);
 
 //Middleware de error
 app.use((error, req, res, next) => {

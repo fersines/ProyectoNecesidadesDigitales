@@ -37,10 +37,10 @@ function formatDateToDB(dateObject) {
   return format(dateObject, "yyyy-MM-dd HH:mm:ss");
 }
 
-async function uploadFile(mifichero,id_usuario,id_servicio) {
+async function uploadFile(mifichero,datos) {
   
   try{
-    const dir = path.join(__dirname,`./docs/solucion/${id_servicio}/${id_usuario}/`);
+    const dir = path.join(__dirname,`./${datos.carpeta}/${datos.servicio}/${datos.usuario}/`);
     mifichero.mv(`${dir}` + mifichero.name);
   }catch(error){
     console.error(error.message);
@@ -50,7 +50,7 @@ async function uploadFile(mifichero,id_usuario,id_servicio) {
 function insertFiles(ficheros,datos){
 
   for (const archivo in ficheros){
-    uploadFile(ficheros[archivo],datos.usuario,datos.servicio);
+    uploadFile(ficheros[archivo],datos);
   }
 }
 

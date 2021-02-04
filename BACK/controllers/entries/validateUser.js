@@ -14,8 +14,8 @@ const validateUser = async (req, res, next) => {
     await connection.query(
       `
       UPDATE usuarios
-      SET activado=true, codigoderegistro=NULL
-      WHERE codigoderegistro=?;
+      SET activado=true, codigoRegistro=NULL
+      WHERE codigoRegistro=?;
     `,
       [registrationCode]
     );

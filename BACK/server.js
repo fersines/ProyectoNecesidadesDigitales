@@ -3,6 +3,11 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const fileUpload = require('express-fileupload');
+// Controladores de usuarios
+const {
+  loginUser
+} = require("./controllers/users");
+
 //Controladores nuevos
 const {
   adminUser,
@@ -25,16 +30,27 @@ const {
   } = require("./controllers/entries");
 
   const urls = {
-    "userlogin":"/users/userLogin/",
-    "serviciosid":"/servicios/:id",
-    "usersid":"/users/:id",
-    "servicios":"/servicios",
-    "users":"/users",
-    "insertar":"/insertar",
-    "admin":"/admin",
-    "validaregistrationCode":"/validar/:registrationCode",
-    "usersolution":"/user/solution",
+    userlogin:"/users/userLogin/",
+    serviciosid:"/servicios/:id",
+    usersid:"/users/:id",
+    servicios:"/servicios",
+    users:"/users",
+    insertUser:"/users/insertar",
+    admin:"/admin",
+    validaregistrationCode:"/validar/:registrationCode",
+    usersolution:"/user/solution",
+    deleteservicio:"/servicios/:id",
   };
+
+  const urlsusers= {
+    userslogin :"/users/login",
+    userborracomentario:"/comentar/:id",
+    deleteuser:"/users/:id",
+    updateuser:"/users/:id",
+    listarcomentarios: "/comentar",
+    insertcomentarios: "/comentar",
+  };
+
 //Esto es un comentario de prueba antes del nuevo push
 
 const { PORT } = process.env;
@@ -51,25 +67,31 @@ app.use(fileUpload({
   createParentPath: true
 }));
 
+// POST - /users/login
+// Hace login de un usuario 
+app.post(urlsusers.userslogin, loginUser);
+
+
+
 //Rutas de la API
 //Post - userAdmin
 app.post(urls.userlogin,adminUser);
 
 //Delete - /comentar/:id
 //Borra un comentario de la BBDD
-app.delete("/comentar/:id", deleteComentar);
+app.delete(urlsusers.userborracomentario, deleteComentar);
 
 //Delete - /servicios/:id
 //Borra un servicio de la BBDD
-app.delete("/servicios/:id", deleteServicio);
+app.delete(urls.deleteservicio, deleteServicio);
 
 //Delete - /users/:id
 //Borra un usuario de la BBDD
-app.delete("/users/:id", deleteUser);
+app.delete(urlsusers.deleteuser, deleteUser);
 
 //Put - /usuarios/:id
 //Permite al Admin modificar los datos de usuario en la BBDD
-app.put("/users/:id", editUser);
+app.put(urlsusers.updateuser, editUser);
 
 //Get - /servicios/id
 //Devuelve un único servicio
@@ -85,7 +107,7 @@ app.post(urls.usersolution,insertThings);
 
 //GET - /comentar
 //Devuelve todos los comentarios de la tabla comentar
-app.get("/comentar", listComentar);
+app.get(urlsusers.listarcomentarios, listComentar);
 
 //Get - /servicios
 //Devuelve todos los elementos de la tabla servicios
@@ -97,7 +119,7 @@ app.get(urls.users, listUsers);
 
 //Post - /comentar
 //Añade un comentario al servicio
-app.post("/comentar", newComentar);
+app.post(urlsusers.insertcomentarios, newComentar);
 
 //Post - /servicios
 //Insertamos un servicio
@@ -105,7 +127,7 @@ app.post(urls.servicios, newServicio);
 
 //Post - /user
 //Insertamos un usuario
-app.post(urls.insertar,newUser);
+app.post(urls.insertUser,newUser);
 
 //Get - admin
 //Insertar o modificar "admin"

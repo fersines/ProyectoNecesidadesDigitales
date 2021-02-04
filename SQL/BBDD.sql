@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	ape2_usu VARCHAR(50),
 	biografia_usu VARCHAR(500),
     mail VARCHAR(50) UNIQUE NOT NULL,
-    pwd VARCHAR(10) DEFAULT NULL,
+    pwd VARCHAR(512) DEFAULT NULL,
     rol ENUM("admin","normal") DEFAULT "normal" NOT NULL, 
     activado TINYINT DEFAULT NULL,
     borrado TINYINT DEFAULT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS solucionar (
     id_ser_sol INT,
     solucionado TINYINT,
     nomFich VARCHAR(50) UNIQUE,
-    comentarioSolucion VARCHAR(50),
+    comentarioSolucion VARCHAR(500),
     fecha_solucion DATETIME,
     CONSTRAINT solucionar1_pk PRIMARY KEY (id_sol),
     CONSTRAINT solucionar1_fk1 
@@ -71,6 +71,8 @@ CREATE TABLE IF NOT EXISTS comentar (
     comentario VARCHAR(200),
     sinver TINYINT DEFAULT 1,
     sinleer TINYINT DEFAULT 1,
+    fecha  DATETIME,
+
     CONSTRAINT comentar_pk PRIMARY KEY (id_co),
     CONSTRAINT comentar_fk1 
 		FOREIGN KEY(id_usu_co) REFERENCES usuarios(id_usu) ON DELETE CASCADE,

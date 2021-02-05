@@ -5,6 +5,7 @@ const deleteUser = require("./deleteUser");
 const editUser = require("./editUser");
 const getServicio = require("./getServicio");
 const getUser = require("./getUser");
+const insertSolBy = require("./insertSolBy");
 const listComentar = require("./listComentar");
 const listServicios = require("./listServicios");
 const listUsers = require("./listUsers");
@@ -25,6 +26,7 @@ module.exports = {
   editUser,
   getServicio,
   getUser,
+  insertSolBy,
   listComentar,
   listServicios,
   listUsers,

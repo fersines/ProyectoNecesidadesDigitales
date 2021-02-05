@@ -40,7 +40,9 @@ const getServicio = async (req, res, next) => {
       [id]
     );
 
-    console.log(comment);
+    const [solucionado, ] = await connection.query(
+      `SELECT solucionado FROM solucionar WHERE id_ser_sol=?`,[id]
+    );
 
     res.send({
       status: "Ok",
@@ -48,6 +50,7 @@ const getServicio = async (req, res, next) => {
         ...single,
         file,
         comment,
+        solucionado,
       },
     });
   } catch (error) {

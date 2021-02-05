@@ -27,7 +27,8 @@ const {
   newComentar,
   deleteComentar,
   listComentar,
-  voteServicio
+  voteServicio,
+  insertSolBy
   } = require("./controllers/entries");
 
   const urls = {
@@ -102,6 +103,10 @@ app.get(urls.serviciosid, getServicio);
 //Get - /users/id
 //Devuelve un único usuario
 app.get(urls.usersid, getUser);
+
+//Post - /user/solution/:id
+//Indica quien ha finalizado un servicio
+app.post("/user/solution/:id", insertSolBy);
 
 //Insertar Solucion
 

@@ -3,9 +3,9 @@ const sgMail = require('@sendgrid/mail');
 const path = require("path");
 const crypto = require("crypto");
 const fs = require("fs").promises;
-
-sgMail.setApiKey('');
 const getDB = require("./db");
+sgMail.setApiKey('');
+
 //se manda como un objeto, y este ya lo desestructura en 'to','subject' y 'body'
 async function sendMail({to,subject,body}){
     try{
@@ -67,6 +67,89 @@ async function makeDir(nameDir){
   }
 }
 
+////Funciones SQL /////
+async function rank(){
+  let connection;
+  let sql;
+
+  try {
+    connection = await getDB();
+    sql = await connection.query(`select usuarios.nom_usu ,sum(puntuacion)
+    from servicios inner join solucionar
+    on servicios.id_ser = solucionar.id_ser_sol
+    join usuarios
+    on usuarios.id_usu = solucionar.id_usu_sol
+    where solucionar.solucionado = 1
+    group by usuarios.id_usu
+    order by sum(puntuacion) desc;`);
+    return sql;
+  } catch (error){
+      const e = new Error('Error cargando datos de ranking');
+      e.httpStatus = 500;
+      throw e;
+  }
+}
+async function datosServicios(condicion){
+  let connection;
+  let sql;
+  try {
+    connection = await getDB();
+    
+    await connection.query(`call tablatemporal(${condicion});`);
+    sql = await connection.query(`select puntos(id_usu),puntos(id_usu_sol),buscarUsu(id_usu_sol) as 'Solucionador',nom_usu,titulo_ser,puntuacion from temporal L join servicios on L.id_ser_soli = id_ser;`);
+    return sql;
+    } catch (error) {
+      const e = new Error('Error cargando datos de servicios');
+      e.httpStatus = 500;
+      throw e;
+  }
+}
+///////Mis servicios
+
+async function elServicios(usuario){
+  let connection;
+  let sql;
+  try{
+    connection = await getDB();
+
+    sql = await connection.query(`select * from servicios join solicitar
+    on servicios.id_ser = solicitar.id_ser_soli
+    where solicitar.id_usu_soli = ?;`,[usuario]);
+    return sql;
+  }catch(error){
+    const e = new Error('Error cargando datos de elServicios');
+      e.httpStatus = 500;
+      throw e;
+  }
+}
+
+async function numServSoli(usuario) {
+  let connection;
+  let sql;
+  try{
+    connection = await getDB();
+    sql = await connection.query(`select count(id_ser) 
+    from servicios join solicitar
+      on servicios.id_ser = solicitar.id_ser_soli
+      where solicitar.id_usu_soli = ?;`,[usuario]);
+    return sql;
+  } catch{
+    const e = new Error('Error cargando datos de numServSoli');
+      e.httpStatus = 500;
+      throw e;
+  }
+}
+
+////////////
 module.exports = {
-  formatDateToDB,sendMail,generateRandomString,makeDir,uploadFile,insertFiles
+  formatDateToDB,
+  sendMail,
+  generateRandomString,
+  makeDir,
+  uploadFile,
+  insertFiles,
+  datosServicios,
+  rank,
+  elServicios,
+  numServSoli
 };

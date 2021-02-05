@@ -36,11 +36,11 @@ const getServicio = async (req, res, next) => {
 
     //Sacamos el comentario
     const [ comment, ] = await connection.query(
-      `SELECT comentario FROM comentar WHERE id_ser_co=?`,
+      `SELECT comentario, id_usu_co FROM comentar WHERE id_ser_co=?`,
       [id]
     );
 
-    console.log(file);
+    console.log(comment);
 
     res.send({
       status: "Ok",

@@ -1,5 +1,8 @@
 const getDB = require("../../db");
 
+//Estamos dando por supuesto que cada servicio sólo puede 
+//tener una votación y si se vota un servicio que ya tiene una
+//se sobreescribiría la antigua
 const voteServicio = async (req, res, next) => {
   let connection;
 
@@ -10,28 +13,12 @@ const voteServicio = async (req, res, next) => {
     const { id } = req.params;
     const { puntuacion } = req.body;
 
-   /*  // Lo dejo preparado hasta decidir el rago de la puntuación
-    if (vote < 1 || vote > 5) {
-      const error = new Error("El voto debe estar entre 1 y 5");
+    // Limitamos la puntuación en el back sin hacerlo en SQL
+    if (puntuacion < 1 || puntuacion > 5) {
+      const error = new Error("La puntuacion debería ser 1,2,3,4 o 5");
       error.httpStatus = 400;
       throw error;
-    } */
-
-    // Compruebo que la puntuación la da el usuario que creo el servicio
-    const [current] = await connection.query(
-      `
-      SELECT id_ser_soli
-      FROM solicitar
-      WHERE id_ser_soli=?
-    `,
-      [id]
-    );
-
-    if (current[0] === id) {
-      const error = new Error("No puedes votar la entrada de otro");
-      error.httpStatus = 403;
-      throw error;
-    }
+    } 
 
     const now = new Date();
 

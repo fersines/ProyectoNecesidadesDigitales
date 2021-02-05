@@ -17,6 +17,7 @@ const {
   getUser,
   listServicios,
   listUsers,
+  newComentAdmin,
   newServicio,
   newUser,
   updateAmin,
@@ -49,6 +50,7 @@ const {
     updateuser:"/users/:id",
     listarcomentarios: "/comentar",
     insertcomentarios: "/comentar",
+    comentarAdmin: "/comentar/admin",
   };
 
 //Esto es un comentario de prueba antes del nuevo push
@@ -121,6 +123,10 @@ app.get(urls.users, listUsers);
 //Añade un comentario al servicio
 app.post(urlsusers.insertcomentarios, newComentar);
 
+//Post - /comentar/admin
+//Añade un comentario realizado por el admin
+app.post("/comentar/admin", newComentAdmin);
+
 //Post - /servicios
 //Insertamos un servicio
 app.post(urls.servicios, newServicio);
@@ -141,7 +147,7 @@ app.get(urls.validaregistrationCode,validateUser);
 
 //Put - /servicios
 //Añade puntuación a un servicio
-//app.put("/servicios/:id", voteServicio);
+app.put("/servicios/:id", voteServicio);
 
 //Middleware de error
 app.use((error, req, res, next) => {

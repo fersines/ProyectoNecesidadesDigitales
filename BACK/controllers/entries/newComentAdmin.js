@@ -8,11 +8,15 @@ const newComentar = async (req, res, next) => {
     connection = await getDB();
 
     //Saco queryString
-    const { id_usu_co, id_ser_co, comentario , id_usu, id_ser} = req.body;
+    const { id_usu_co, id_ser_co, comentario , id_ser} = req.body;
 
 const now = new Date();
 
-await connection.query(`INSERT INTO comentar(id_usu_co, id_ser_co, comentario, fecha) VALUES(?,?,?,?);`, [id_usu, id_ser, comentario, formatDateToDB(now)]);
+const [admin] = await connection.query(
+  `SELECT id_usu FROM usuarios WHERE rol=?;`,["admin"]
+);
+
+await connection.query(`INSERT INTO comentar(id_usu_co, id_ser_co, comentario, fecha) VALUES(?,?,?,?);`, [admin, id_ser, comentario, formatDateToDB(now)]);
 
     //Devuelto un json con los detalles del comentario
     res.send({

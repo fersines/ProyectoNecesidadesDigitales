@@ -9,6 +9,7 @@ const listComentar = require("./listComentar");
 const listServicios = require("./listServicios");
 const listUsers = require("./listUsers");
 const newComentar = require("./newComentar");
+const newComentAdmin = require("./newComentAdmin");
 const newServicio = require("./newServicio");
 const newUser = require("./newUser");
 const updateAmin = require("./updateAdmin");
@@ -28,6 +29,7 @@ module.exports = {
   listServicios,
   listUsers,
   newComentar,
+  newComentAdmin,
   newServicio,
   newUser,
   updateAmin,

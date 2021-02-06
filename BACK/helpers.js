@@ -105,6 +105,67 @@ async function datosServicios(condicion){
   }
 }
 ///////Mis servicios
+async function miNumSolucionados(usuario) {
+  let connection;
+  let sql;
+
+  try {
+    connection = await getDB();
+
+    sql = await connection.query(`select  count(id_sol) 
+    from solucionar where solucionado = 1 && id_usu_sol= ?;`,[usuario]);
+    return sql;
+  } catch (error){
+    const e = new Error('Error cargando datos de miNumSolucionados');
+      e.httpStatus = 500;
+      throw e;
+  }
+}
+async function misComentarios(usuario,campo) {
+  let connection;
+  let sql;
+
+    try {
+      connection = await getDB();
+      sql = await connection.query(`select count(${campo}) from comentar join usuarios
+      on usuarios.id_usu = comentar.id_usu_co
+      where ${campo} = 1 and id_usu_co = ?`,[usuario]);  
+      
+      return sql;
+    } catch (error) {
+      const e = new Error('Error cargando datos de misComentarios');
+      e.httpStatus = 500;
+      throw e;
+    }
+
+}
+async function misServes(usuario,solucionados){
+  let connection;
+  let sql;
+  let condicion;
+  let instrucionSql;
+  try {
+    connection = await getDB();
+    instrucionSql =`select titulo_ser,nombre_fich_ser,puntuacion 
+    from servicios join solicitar
+    on servicios.id_ser = solicitar.id_ser_soli
+    where solicitar.id_usu_soli = ?`;
+    if(solucionados){
+      condicion = "puntuacion >= 2.5";
+      sql = await connection.query(`${instrucionSql} and ${condicion}`,[usuario]); 
+    }else{
+      condicion = "puntuacion < 2.5";
+      sql = await connection.query(`${instrucionSql} and ${condicion}`,[usuario]); 
+    }
+      return sql;
+
+  } catch (error) {
+    const e = new Error('Error cargando datos de misServes');
+      e.httpStatus = 500;
+      throw e;
+  }
+  
+}
 
 async function elServicios(usuario){
   let connection;
@@ -151,5 +212,8 @@ module.exports = {
   datosServicios,
   rank,
   elServicios,
-  numServSoli
+  numServSoli,
+  misServes,
+  misComentarios,
+  miNumSolucionados
 };

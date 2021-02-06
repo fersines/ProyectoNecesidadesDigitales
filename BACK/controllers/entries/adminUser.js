@@ -7,7 +7,15 @@
  *  localhost:3000/users/userLogin?id_usuario=1
  * con la opcion de 'params' en postman
  */
-const {datosServicios,rank, elServicios,numServSoli} = require("../../helpers");
+const {
+  datosServicios,
+  rank,
+  elServicios,
+  numServSoli,
+  misServes,
+  misComentarios,
+  miNumSolucionados
+} = require("../../helpers");
 const getDB = require("../../db");
 const adminUser = async (req, res, next) => {
     let connection;
@@ -21,30 +29,18 @@ const adminUser = async (req, res, next) => {
     const [ranking] = await rank();   
     const [misServicios] = await elServicios(id_usuario);
  
-  const [NumMisServSoli] = await numServSoli(id_usuario);
-  const [misServiciosNoSolucionados] = await connection.query(`
-  select titulo_ser,nombre_fich_ser,puntuacion 
-  from servicios join solicitar
-  on servicios.id_ser = solicitar.id_ser_soli
-  where solicitar.id_usu_soli = ? and puntuacion = 0;`,[id_usuario]);
+    const [NumMisServSoli] = await numServSoli(id_usuario);
+    const [misServiciosNoSolucionados] = await misServes(id_usuario,0);
+    const [misServiciosSolucionados] = await misServes(id_usuario,1);
 
-  const [misServiciosSolucionados] = await connection.query(`
-  select titulo_ser,nombre_fich_ser,puntuacion from servicios join solicitar 
-  on servicios.id_ser = solicitar.id_ser_soli join solucionar on solucionar.id_ser_sol = solicitar.id_ser_soli
-  where solicitar.id_usu_soli = ? and solucionar.solucionado = 1;`,[id_usuario]);
-
-
-  const [MisSolucionados] = await connection.query(`select  count(id_sol) 
-  from solucionar where solucionado = 1 && id_usu_sol= ?;`, [id_usuario]);
+    const [MisSolucionados] = await connection.query(`select  count(id_sol) 
+    from solucionar where solucionado = 1 && id_usu_sol= ?;`, [id_usuario]);
   
-  const [comentSinLer] = await connection.query(`select count(sinleer) from comentar join usuarios
-  on usuarios.id_usu = comentar.id_usu_co
-  where sinleer = 1 and id_usu_co = ?`,[id_usuario]);
-  const [comentSinVer] = await connection.query(`select count(sinver) from comentar join usuarios
-  on usuarios.id_usu = comentar.id_usu_co
-  where sinver = 1 and id_usu_co = ?`,[id_usuario]);
-  
-     // Devuelvo un json con las entradas
+    const [comentSinLer] = await misComentarios(id_usuario,"sinleer");
+    const [comentSinVer] = await misComentarios(id_usuario,"sinver");
+  //const [MisSolucionados] = await miNumSolucionados(id_usuario); //No sé porque esta función me queda en espera ¿?
+     
+  // Devuelvo un json con las entradas
      res.send({
         status: "ok",
         ranking:ranking,

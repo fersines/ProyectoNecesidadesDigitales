@@ -52,9 +52,9 @@ console.log(`user length: ${user.length}`)
     };
 
     const token = jwt.sign(info, process.env.SECRETO, {
-      expiresIn: "300",
+      expiresIn: "1d",
     });
-
+    console.log(`Estoy en login ${token}`)
     res.send({
       status: "ok",
       data: {

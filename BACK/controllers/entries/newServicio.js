@@ -7,10 +7,10 @@ const newServicio = async (req, res, next) => {
 
   try {
     connection = await getDB();
-
+    console.log(req.userAuth);
     //Saco queryString
     const { nombre_fich_ser, expli_ser, titulo_ser ,id_usu} = req.body;
-
+    console.log(`${nombre_fich_ser} nombre`)
     if (!nombre_fich_ser) {
       const error = new Error("El campo nombre_fich_ser es obligatorio");
       error.httpStatus = 400;
@@ -22,7 +22,7 @@ const newServicio = async (req, res, next) => {
       error.httpStatus = 400;
       throw error;
     } */
-
+/*
     const now = new Date();
 
    await connection.query(`INSERT INTO servicios(nombre_fich_ser,expli_ser,fecha_ser_ini,titulo_ser) VALUES(?,?,?,?);`, [nombre_fich_ser, expli_ser, formatDateToDB(now), titulo_ser]);
@@ -30,17 +30,17 @@ const newServicio = async (req, res, next) => {
    const [id]= await connection.query(`SELECT id_ser FROM servicios WHERE titulo_ser = ?;`,[titulo_ser]);
 
    await connection.query(`INSERT INTO solicitar(id_ser_soli,id_usu_soli) VALUES (?,?);`,[id[0]['id_ser'],id_usu]);
-
+*/
 
    /*Para aclara por pantalla como sale de la bbdd*/
-    for(const prop in id){
+   /* for(const prop in id){
       console.log(`${prop} = ${id[prop]}`);
       for(const contador in id[prop]){
           console.log(`O id leido: ${contador} = ${id[prop][contador]}. \n}`)
       }
     }
     console.log(`O id leído ${id[0]['id_ser']}`);
-    console.log(`O id doutro xeito: ${id[0].id_ser}`);
+    console.log(`O id doutro xeito: ${id[0].id_ser}`);*/
 
     
 

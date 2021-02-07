@@ -11,7 +11,7 @@ const listServicios = require("./listServicios");
 const listUsers = require("./listUsers");
 const newComentar = require("./newComentar");
 const newComentAdmin = require("./newComentAdmin");
-const newServicio = require("./newServicio");
+const newServicio0 = require("./newServicio0");
 const newUser = require("./newUser");
 const updateAmin = require("./updateAdmin");
 const validateUser = require("./validateUser");
@@ -32,7 +32,7 @@ module.exports = {
   listUsers,
   newComentar,
   newComentAdmin,
-  newServicio,
+  newServicio0,
   newUser,
   updateAmin,
   validateUser,

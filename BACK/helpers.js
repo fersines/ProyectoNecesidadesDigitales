@@ -4,6 +4,7 @@ const path = require("path");
 const crypto = require("crypto");
 const fs = require("fs").promises;
 const getDB = require("./db");
+const { result } = require("lodash");
 sgMail.setApiKey('');
 
 //se manda como un objeto, y este ya lo desestructura en 'to','subject' y 'body'
@@ -105,6 +106,27 @@ async function datosServicios(condicion){
   }
 }
 ///////Mis servicios
+
+ function insertServicio(id_usuario,dato){
+  let connection;
+  
+  try{
+    let sql = `CALL insertarServicio(?,?,?,?)`;
+    connection.query(sql,[id_usuario,dato.explicacion,new Date(),dato.titulo],(error,results,fields)=>{
+            if (error) {
+              return console.error(error.message);
+            }
+            console.log(results[0]);
+          }
+    );
+    return 1;
+  }catch(error){
+    const e = new Error('Error insertando Servicio solicitado');
+      e.httpStatus = 500;
+      throw e;
+  }
+}
+
 async function miNumSolucionados(usuario) {
   let connection;
   let sql;
@@ -215,5 +237,6 @@ module.exports = {
   numServSoli,
   misServes,
   misComentarios,
-  miNumSolucionados
+  miNumSolucionados,
+  insertServicio
 };

@@ -22,6 +22,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     rol ENUM("admin","normal") DEFAULT "normal" NOT NULL, 
     activado TINYINT DEFAULT NULL,
     borrado TINYINT DEFAULT NULL,
+    lastAuthUpdate DATETIME,
     codigoRegistro VARCHAR(100) DEFAULT NULL,
     CONSTRAINT usuarios_pk PRIMARY KEY (id_usu)
 

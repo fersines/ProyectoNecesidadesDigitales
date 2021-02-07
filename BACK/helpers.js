@@ -107,18 +107,12 @@ async function datosServicios(condicion){
 }
 ///////Mis servicios
 
- function insertServicio(id_usuario,dato){
+async function insertServicio(id_usuario,dato){
   let connection;
   
   try{
-    let sql = `CALL insertarServicio(?,?,?,?)`;
-    connection.query(sql,[id_usuario,dato.explicacion,new Date(),dato.titulo],(error,results,fields)=>{
-            if (error) {
-              return console.error(error.message);
-            }
-            console.log(results[0]);
-          }
-    );
+   
+    await connection.query(`call insertarServicio(?,?,?,?)`,[id_usuario,dato.explicacion,new Date(),dato.titulo]);
     return 1;
   }catch(error){
     const e = new Error('Error insertando Servicio solicitado');

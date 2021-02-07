@@ -37,8 +37,8 @@ const insertThings = async (req, res, next)=>{
         }
         
         insertFiles(req.files,dato);
-        insertServicio(req.userAuth.id,dato);
-        
+        //insertServicio(req.userAuth.id,dato);
+        await connection.query(`call insertarServicio(?,?,?,?)`,[req.userAuth.id,dato.explicacion,new Date(),dato.titulo]);
         res.send({
             status:"ok",
             salida: dato

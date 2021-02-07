@@ -341,16 +341,16 @@
 			]
 		},
 		{
-			"name": "Israel",
+			"name": "Usuarios - Primeros pasos",
 			"item": [
 				{
-					"name": "Login de usuario",
+					"name": "3 - Login de usuario",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"mail\": \"issupl@gmail.com\",\n    \"pwd\": \"lorempimpsum\"\n}",
+							"raw": "{\n    \"mail\": \"fsinesc@gmail.com\",\n    \"pwd\": \"lorempimpsum\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -368,7 +368,117 @@
 								"users",
 								"login"
 							]
+						},
+						"description": "Este end-point tiene la librería para generar el token,llamada \"jsonwebtoken\".\r\n> Utilizando el método 'sign', generará con la cadena que tenemos guardada en nuestro servidor más la info de la base de datos que traemos una expresión secreta.\r\n\r\n    const jwt = require(\"jsonwebtoken\");\r\n    const token = jwt.sign(info, process.env.SECRETO, {\r\n      expiresIn: \"1d\",\r\n    });"
+					},
+					"response": []
+				},
+				{
+					"name": "1 - newUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mail\": \"fsinesc@gmail.com\",\r\n    \"pwd\": \"lorempimpsum\",\r\n    \"nomUsuario_usu\": \"fer\",\r\n    \"nom_usu\": \"fernando\",\r\n    \"ape1_usu\": \"jag dal\",\r\n    \"ape2_usu\": \"ññkljh sadsa\",\r\n    \"biografia_usu\": \"ñkjkh adsa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/insertar",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"insertar"
+							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "2 - validateUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/validar/:registrationCode",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"validar",
+								":registrationCode"
+							],
+							"variable": [
+								{
+									"key": "registrationCode",
+									"value": ""
+								}
+							]
+						},
+						"description": "Este end-point realizará lo siguiente:\r\n\r\n> Generará el token si los datos recibidos son correctos,\r\npara poder utilizarlo en la web.\r\n"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Usuarios - logeados",
+			"item": [
+				{
+					"name": "adminUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjcyMDE2OCwiZXhwIjoxNjEyODA2NTY4fQ.xPxwZN4pllG6cfkBXrZ3-1Y6b_Pjs0d9Gs_z-1HUSgk",
+								"description": "Token de fernando",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/users/userLogin/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"userLogin",
+								""
+							]
+						},
+						"description": "Este end-point necesita token, eso quire decir que tenemos que meterlo en los HEADERS, con la palabra adecuada, en este caso elegimos \"authorization\" que lo desestructuraremos\r\n    const { authorization } = req.headers;\r\nPreviamente pasará por el middelware isUser que también lo requerirá, que en caso de no ser correcto no deja seguir"
 					},
 					"response": []
 				},
@@ -434,55 +544,6 @@
 					"response": []
 				},
 				{
-					"name": "newUser",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"mail\": \"issupl@gmail.com\",\r\n    \"pwd\": \"lorempimpsum\",\r\n    \"nomUsuario_usu\": \"jorgint\",\r\n    \"nom_usu\": \"juna\",\r\n    \"ape1_usu\": \"jag dal\",\r\n    \"ape2_usu\": \"ññkljh sadsa\",\r\n    \"biografia_usu\": \"ñkjkh adsa\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "localhost:3000/users/insertar",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users",
-								"insertar"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "adminUser",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/users/userLogin/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users",
-								"userLogin",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "newServicio",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {}
@@ -534,6 +595,27 @@
 						}
 					},
 					"response": []
+				}
+			],
+			"description": "Estos end-points, tienen como condición que estén logeados.\r\n> Para ello deben tener pasados los \"Primeros pasos\".\r\n> Traen el token con el que trabajaremos, este contendrá el \"id de usuario\" y la fecha-hora de inicio y finalización.\r\n> Dichos end-point estarán previamente con el middleware \"isUser\"!!!!!!!!!\r\n\r\nCualquier \"usuario\", una vez logeado irá a su página de inicio, \"adminUser\". Entre las cosas que podrá realizar serán las siguientes:\r\n    * Sus modificaciones como:\r\n        <>> Cambiar sus datos y subir su foto para el avatar => editUser\r\n    * En general:\r\n        <>> Insertar un servicio => newServicio\r\n        <>> Insertar una solución => inserFile\r\n        <>> Insertar un comentario => newComentar\r\n\r\nFinalmente, entendemos que dichos end-point tendrán lo siguiente:\r\n\r\n    *app.[]([OBJETO.URL],isUser,[...lo que toque...]). Ejemplo:\r\n        app.post(urls.servicios, isUser,newServicio);\r\n\r\n",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		}

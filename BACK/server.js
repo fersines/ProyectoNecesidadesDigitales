@@ -40,8 +40,7 @@ const {
 
 //Controladores middlewares
 const {isUser} = require("./middlewares");
-const urls = {
-    userlogin:"/users/userLogin/",
+const urls = {    
     serviciosid:"/servicios/:id",
     usersid:"/users/:id",
     servicios:"/servicios",
@@ -55,6 +54,7 @@ const urls = {
 
   const urlsusers= {
     userslogin :"/users/login",
+    userlogeado:"/users/userLogin/",
     userborracomentario:"/comentar/:id",
     deleteuser:"/users/:id",
     updateuser:"/users/:id",
@@ -87,7 +87,7 @@ app.post(urlsusers.userslogin, loginUser);
 
 //Rutas de la API
 //Post - userAdmin
-app.post(urls.userlogin,isUser,adminUser);
+app.post(urlsusers.userlogeado,isUser,adminUser);
 
 //Delete - /comentar/:id
 //Borra un comentario de la BBDD

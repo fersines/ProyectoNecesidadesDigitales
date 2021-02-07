@@ -3,33 +3,41 @@ const express = require("express");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const fileUpload = require('express-fileupload');
-// Controladores de usuarios
-const {
-  loginUser
-} = require("./controllers/users");
 
-//Controladores nuevos
+//Controladores de admin
+const {
+  deleteServicioAdmin,
+  deleteUser,
+  newComentAdmin,
+  updateAmin,
+  } = require("./controllers/admin");
+
+//Controladores de servicios
+const {
+  deleteComentar,
+  getServicio,
+  insertSolBy,
+  insertThings,
+  listComentar,
+  listServicios,
+  newComentar,
+  newServicio,
+  voteServicio
+  } = require("./controllers/servicios");
+
+// Controladores de usuarios
 const {
   adminUser,
   deleteServicio,
   editUser,
-  getServicio,
   getUser,
-  listServicios,
   listUsers,
-  newComentAdmin,
-  newServicio0,
+  loginUser,
   newUser,
-  updateAmin,
-  validateUser,
-  insertThings,
-  deleteUser,
-  newComentar,
-  deleteComentar,
-  listComentar,
-  voteServicio,
-  insertSolBy
-  } = require("./controllers/entries");
+  validateUser
+} = require("./controllers/users");
+
+
 //Controladores middlewares
 const {isUser} = require("./middlewares");
 const urls = {
@@ -86,6 +94,10 @@ app.post(urls.userlogin,isUser,adminUser);
 app.delete(urlsusers.userborracomentario, deleteComentar);
 
 //Delete - /servicios/:id
+//Borra un servicio de la BBDD por el Admin
+app.delete(urls.deleteservicio, deleteServicioAdmin);
+
+//Delete - /servicios/:id
 //Borra un servicio de la BBDD
 app.delete(urls.deleteservicio, deleteServicio);
 
@@ -136,7 +148,7 @@ app.post("/comentar/admin", newComentAdmin);
 //Post - /servicios
 //Insertamos un servicio
 //app.post("/servicios", isUser);
-app.post(urls.servicios, isUser,newServicio0);
+app.post(urls.servicios, isUser,newServicio);
 
 //Post - /user
 //Insertamos un usuario

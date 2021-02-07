@@ -42,8 +42,8 @@ const newUser = async (req, res, next) => {
           // Creo un código de registro (contraseña temporal de un solo uso)
         const registrationCode = generateRandomString(10);
         await conexion.query(`
-        INSERT INTO usuarios (pwd,mail,nomUsuario_usu,nom_usu,ape1_usu,ape2_usu,biografia_usu,codigoRegistro) VALUES (SHA2(?, 512),?,?,?,?,?,?,?);
-         `,[pwd,mail,nomUsuario_usu, nom_usu, ape1_usu, ape2_usu,biografia_usu,registrationCode]);
+        INSERT INTO usuarios (lastAuthUpdate,pwd,mail,nomUsuario_usu,nom_usu,ape1_usu,ape2_usu,biografia_usu,codigoRegistro) VALUES (SHA2(?, 512),?,?,?,?,?,?,?);
+         `,[new Date(),pwd,mail,nomUsuario_usu, nom_usu, ape1_usu, ape2_usu,biografia_usu,registrationCode]);
          
          const emailBody = `Te acabas de registrar en Servicios Digitales.
                             Pulsa en este link para verificar tu mail: ${process.env.PUBLIC_HOST}/validar/${registrationCode}`;

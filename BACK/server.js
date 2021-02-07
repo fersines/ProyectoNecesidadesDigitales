@@ -70,7 +70,7 @@ app.use(bodyParser.json()); //Comentario realizado por [Israel] : no recuerdo pa
 app.use(fileUpload({
   createParentPath: true
 }));
-/*
+
 // POST - /users/login
 // Hace login de un usuario 
 app.post(urlsusers.userslogin, loginUser);
@@ -79,7 +79,7 @@ app.post(urlsusers.userslogin, loginUser);
 
 //Rutas de la API
 //Post - userAdmin
-app.post(urls.userlogin,adminUser);
+app.post(urls.userlogin,isUser,adminUser);
 
 //Delete - /comentar/:id
 //Borra un comentario de la BBDD
@@ -132,12 +132,12 @@ app.post(urlsusers.insertcomentarios, newComentar);
 //Post - /comentar/admin
 //Añade un comentario realizado por el admin
 app.post("/comentar/admin", newComentAdmin);
-*/
+
 //Post - /servicios
 //Insertamos un servicio
 //app.post("/servicios", isUser);
 app.post(urls.servicios, isUser,newServicio0);
-/*
+
 //Post - /user
 //Insertamos un usuario
 app.post(urls.insertUser,newUser);
@@ -155,7 +155,7 @@ app.get(urls.validaregistrationCode,validateUser);
 //Put - /servicios
 //Añade puntuación a un servicio
 app.put("/servicios/:id", voteServicio);
-*/
+
 //Middleware de error
 app.use((error, req, res, next) => {
   console.error(error);

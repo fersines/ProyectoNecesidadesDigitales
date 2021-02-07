@@ -19,7 +19,7 @@
  */
 
 const getDB = require("../../db");
-const { insertFiles,insertServicio,formatDateToDB } = require("../../helpers");
+const { insertFiles } = require("../../helpers");
 
 const insertThings = async (req, res, next)=>{
     

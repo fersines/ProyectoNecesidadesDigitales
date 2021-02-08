@@ -223,35 +223,6 @@
 					"response": []
 				},
 				{
-					"name": "Editar Usuario",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n        \"id_usu\": 8,\n        \"nomFoto_usu\": \"New fugit\",\n        \"nomUsuario_usu\": \"Wilhelmine35bis\",\n        \"nom_usu\": \"Rosalinda\",\n        \"ape1_usu\": \"Schmidt\",\n        \"ape2_usu\": \"Rempel\",\n        \"biografia_usu\": \"Sit voluptatem consectetur autem sed doloremque similique. Et sit quia aut. Quia assumenda tempore aperiam molestiae est neque. Harum aut officia dolores nobis eos odio eveniet.\",\n        \"mail\": \"Jerome.Johnson@hotmail.com\",\n        \"pwd\": null,\n        \"rol\": \"admin\",\n        \"activado\": null,\n        \"borrado\": null,\n        \"codigoRegistro\": null\n    }",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3000/users/8",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"users",
-								"8"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Borrar Servicio",
 					"request": {
 						"method": "DELETE",
@@ -266,25 +237,6 @@
 							"path": [
 								"servicios",
 								"11"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Nuevo Comentario",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/comentar",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"comentar"
 							]
 						}
 					},
@@ -456,7 +408,7 @@
 				{
 					"name": "adminUser",
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [
 							{
 								"key": "authorization",
@@ -483,10 +435,16 @@
 					"response": []
 				},
 				{
-					"name": "insertFile",
+					"name": " insertSolution",
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjcyMDE2OCwiZXhwIjoxNjEyODA2NTY4fQ.xPxwZN4pllG6cfkBXrZ3-1Y6b_Pjs0d9Gs_z-1HUSgk",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
@@ -502,7 +460,7 @@
 								},
 								{
 									"key": "id_servicio",
-									"value": "1",
+									"value": "78",
 									"type": "text"
 								},
 								{
@@ -544,6 +502,35 @@
 					"response": []
 				},
 				{
+					"name": "Editar Usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"nomFoto_usu\": \"New fugit\",\n        \"nomUsuario_usu\": \"Wilhelmine35bis\",\n        \"nom_usu\": \"Rosalinda\",\n        \"ape1_usu\": \"Schmidt\",\n        \"ape2_usu\": \"Rempel\",\n        \"biografia_usu\": \"Sit voluptatem consectetur autem sed doloremque similique. Et sit quia aut. Quia assumenda tempore aperiam molestiae est neque. Harum aut officia dolores nobis eos odio eveniet.\",\n        \"mail\": \"Jerome.Johnson@hotmail.com\",\n        \"pwd\": null,\n        \"rol\": \"admin\",\n        \"activado\": null,\n        \"borrado\": null,\n        \"codigoRegistro\": null\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "newServicio",
 					"protocolProfileBehavior": {
 						"disabledSystemHeaders": {}
@@ -553,7 +540,7 @@
 						"header": [
 							{
 								"key": "authorization",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjYyNjY0MSwiZXhwIjoxNjEyNzEzMDQxfQ.oMr8F-T0I7B2fqJgH7Fm4Pv0UpVZDUplVwhoZBo_z6k",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjcyMDE2OCwiZXhwIjoxNjEyODA2NTY4fQ.xPxwZN4pllG6cfkBXrZ3-1Y6b_Pjs0d9Gs_z-1HUSgk",
 								"type": "text"
 							}
 						],
@@ -562,12 +549,12 @@
 							"formdata": [
 								{
 									"key": "eltitulo",
-									"value": "este es el titulo",
+									"value": "este es el titulo de Fernando",
 									"type": "text"
 								},
 								{
 									"key": "explicacion",
-									"value": "esta es la explicación",
+									"value": "esta es la explicación de Fernando",
 									"type": "text"
 								},
 								{
@@ -591,6 +578,40 @@
 							"port": "3000",
 							"path": [
 								"servicios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nuevo Comentario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsInJvbCI6Im5vcm1hbCIsImlhdCI6MTYxMjcyMDE2OCwiZXhwIjoxNjEyODA2NTY4fQ.xPxwZN4pllG6cfkBXrZ3-1Y6b_Pjs0d9Gs_z-1HUSgk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_ser\": \"78\",\r\n    \"comentario\":\"prueba de otro comentario 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/comentar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"comentar"
 							]
 						}
 					},

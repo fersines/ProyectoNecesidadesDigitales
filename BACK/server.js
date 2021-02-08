@@ -17,7 +17,7 @@ const {
   deleteComentar,
   getServicio,
   insertSolBy,
-  insertThings,
+  insertSolutions,
   listComentar,
   listServicios,
   newComentar,
@@ -39,7 +39,7 @@ const {
 
 
 //Controladores middlewares
-const {isUser} = require("./middlewares");
+const {isUser,servicioExist} = require("./middlewares");
 const urls = {    
     serviciosid:"/servicios/:id",
     usersid:"/users/:id",
@@ -87,7 +87,7 @@ app.post(urlsusers.userslogin, loginUser);
 
 //Rutas de la API
 //Post - userAdmin
-app.post(urlsusers.userlogeado,isUser,adminUser);
+app.get(urlsusers.userlogeado,isUser,adminUser);
 
 //Delete - /comentar/:id
 //Borra un comentario de la BBDD
@@ -123,7 +123,7 @@ app.post("/user/solution/:id", insertSolBy);
 
 //Insertar Solucion
 
-app.post(urls.usersolution,insertThings);
+app.post(urls.usersolution,servicioExist,insertSolutions);//importante !! TENEMOS QUE INSERTAR isUser y el usuario debe ser otro al que envía la solucion
 
 //GET - /comentar
 //Devuelve todos los comentarios de la tabla comentar
@@ -139,7 +139,7 @@ app.get(urls.users, listUsers);
 
 //Post - /comentar
 //Añade un comentario al servicio
-app.post(urlsusers.insertcomentarios, newComentar);
+app.post(urlsusers.insertcomentarios,isUser,servicioExist, newComentar);
 
 //Post - /comentar/admin
 //Añade un comentario realizado por el admin

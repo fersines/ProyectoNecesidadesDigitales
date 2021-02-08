@@ -15,7 +15,7 @@
 const getDB = require("../../db");
 const { insertFiles } = require("../../helpers");
 
-const insertThings = async (req, res, next)=>{
+const   insertSolutions = async (req, res, next)=>{
     
     let connection;   
     try {
@@ -44,4 +44,4 @@ const insertThings = async (req, res, next)=>{
     }
 };
 
-module.exports = insertThings;
+module.exports =   insertSolutions;

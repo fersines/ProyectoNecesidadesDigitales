@@ -5,14 +5,14 @@ const listComentar = require("./listComentar");
 const listServicios = require("./listServicios");
 const newComentar = require("./newComentar");
 const newServicio = require("./newServicio");
-const insertThings = require("./insertThings");
+const insertSolutions = require("./insertSolutions");
 const voteServicio = require("./voteServicio");
 
 module.exports = {
   deleteComentar,
   getServicio,
   insertSolBy,
-  insertThings,
+  insertSolutions,
   listComentar,
   listServicios,
   newComentar,

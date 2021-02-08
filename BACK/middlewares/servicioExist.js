@@ -1,18 +1,18 @@
 const getDB = require("../db");
 
-const entryExists = async (req, res, next) => {
+const servicioExist = async (req, res, next) => {
   let connection;
 
   try {
     connection = await getDB();
 
-    const { id } = req.params;
+    const { id_ser } = req.body;
 
     const [result] = await connection.query(
       `
-      SELECT id FROM entries WHERE id=?
+      SELECT id_ser FROM servicios WHERE id_ser=?
     `,
-      [id]
+      [id_ser]
     );
 
     if (result.length === 0) {
@@ -29,4 +29,4 @@ const entryExists = async (req, res, next) => {
   }
 };
 
-module.exports = entryExists;
+module.exports = servicioExist;

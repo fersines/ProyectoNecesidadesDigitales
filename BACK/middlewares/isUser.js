@@ -6,9 +6,9 @@ const isUser = async (req, res, next) => {
 
   try {
     connection = await getDB();
-    const {eltitulo,explicacion} = req.body; 
+    //const {eltitulo,explicacion} = req.body; 
 
-    console.log(`El titulo vacío? ${eltitulo} y ${explicacion}`);  
+    //console.log(`El titulo vacío? ${eltitulo} y ${explicacion}`);  
     const { authorization } = req.headers;
     console.log(`${authorization} ${process.env.SECRETO}`);
     
